@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-md border-gray-200 px-2 sm:px-4 py-2.5 rounded ">
       <div className="container flex flex-wrap items-center px-5 justify-between mx-auto">
-        <a href="/" className="flex items-center">
+        <Link href="/" className="flex items-center">
           <img
             src="https://www.gparvi.ac.in/images/arvi_logo.jpg"
             className="h-6 mr-3 sm:h-9"
@@ -26,7 +26,7 @@ const Navbar = () => {
           <span className="self-center text-xl font-semibold whitespace-nowrap ">
             Plant Lens
           </span>
-        </a>
+        </Link>
         <div className="flex gap-2 md:order-2">
           <button
             type="button"
