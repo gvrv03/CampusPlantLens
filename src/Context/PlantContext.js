@@ -6,6 +6,8 @@ import { useState } from "react";
 
 const plantContext = createContext();
 export function PlantContexProvider({ children }) {
+  const [allPlants, setallPlants] = useState([]);
+  const [effect, seteffect] = useState("");
   const [toastMsg, settoastMsg] = useState({
     state: "hidden",
     icon: "success",
@@ -40,7 +42,9 @@ export function PlantContexProvider({ children }) {
     latitude,
     iframLoc,
     addressLine,
-    shortDesc
+    shortDesc,
+    longDesc,
+    sciName
   ) => {
     const res = await fetch("/api/addPlant", {
       method: "POST",
@@ -55,27 +59,46 @@ export function PlantContexProvider({ children }) {
         maintainedBy,
         plantimage,
         noOfPlants,
-        category,
+        category, 
         longitude,
         latitude,
         iframLoc,
         addressLine,
         shortDesc,
+        longDesc,
+        sciName,
       }),
     });
     const data = await res.json();
+    console.log(data);
     if (data.msg) {
       openModal("success", data.msg);
     } else {
       openModal("fail", data.error);
     }
   };
+
+  const getPlant = async () => {
+    const res = await fetch("/api/addPlant", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    setallPlants(data);
+  };
+  useEffect(() => {
+    getPlant();
+  }, []);
+
   return (
     <plantContext.Provider
       value={{
         addPlant,
         closeModal,
         openModal,
+        allPlants,
       }}
     >
       {" "}

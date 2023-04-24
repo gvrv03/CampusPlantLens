@@ -15,7 +15,7 @@ const Navbar = () => {
     }
   };
   return (
-    <nav className="bg-white shadow-md border-gray-200 px-2 sm:px-4 py-2.5 rounded ">
+    <nav className="bg-white shadow-md fixed left-0 right-0 top-0  border-gray-200 px-2 sm:px-4 py-2.5 rounded ">
       <div className="container flex flex-wrap items-center px-5 justify-between mx-auto">
         <Link href="/" className="flex items-center">
           <img
@@ -23,8 +23,8 @@ const Navbar = () => {
             className="h-6 mr-3 sm:h-9"
             alt="Flowbite Logo"
           />
-          <span className="self-center text-xl font-semibold whitespace-nowrap ">
-            Plant Lens
+          <span className="self-center font-bold text-xl whitespace-nowrap ">
+            Plant <span className="text-blue-600">Lens</span>
           </span>
         </Link>
         <div className="flex gap-2 md:order-2">
@@ -81,10 +81,13 @@ const Navbar = () => {
               onClick={async () => {
                 const res = await signWithGoogle();
               }}
-              className="bg-blue-600 flex gap-2 text-white font-semibold py-2 px-5 rounded-full"
+              className="bg-white border-2 p-2 w-10 h-10 grid place-items-center  rounded-full"
             >
-              <i class="bi bi-google"></i>
-              <span>Google SignIn</span>
+              <img
+                src="https://www.vectorlogo.zone/logos/google/google-tile.svg"
+                alt=""
+              />
+              {/* <i class="bi bi-google"></i> */}
             </button>
           )}
 

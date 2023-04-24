@@ -16,6 +16,8 @@ const plantSchema = new Schema(
     iframLoc: String,
     addressLine: String,
     shortDesc: String,
+    longDesc: { type: String, default: " " },
+    sciName: String,
     plantImages: [
       {
         type: String,

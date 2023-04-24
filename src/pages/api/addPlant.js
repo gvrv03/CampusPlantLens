@@ -28,6 +28,8 @@ const addPlant = async (req, res) => {
     iframLoc,
     addressLine,
     shortDesc,
+    longDesc,
+    sciName,
   } = req.body;
   if (
     !writtenBy ||
@@ -42,13 +44,41 @@ const addPlant = async (req, res) => {
     !latitude ||
     !iframLoc ||
     !addressLine ||
-    !shortDesc
+    !shortDesc ||
+    !longDesc ||
+    !sciName
   ) {
     return res.status(404).json({ error: "Fill all the fields" });
   }
   try {
-    await Plant(req.body).save();
-    return res.status(201).json({ msg: "Plant Added" });
+    const result = await Plant({
+      writtenBy,
+      plantName,
+      plantedBy,
+      dateOfPlanted,
+      maintainedBy,
+      plantimage,
+      noOfPlants,
+      category,
+      longitude,
+      latitude,
+      iframLoc,
+      addressLine,
+      shortDesc,
+      longDesc,
+      sciName,
+    }).save();
+    return res.status(201).json({ msg: "Plant Added", result });
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+const getPlants = async (req, res) => {
+  try {
+    const allPlants = await Plant.find();
+
+    return res.status(201).json(allPlants);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
   }

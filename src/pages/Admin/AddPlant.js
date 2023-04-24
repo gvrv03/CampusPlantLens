@@ -21,6 +21,8 @@ const AddPlant = () => {
       [e.target.name]: e.target.value,
     });
   };
+console.log(longDesc);
+  console.log(pDetails);
   // console.log(user.displayName);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,6 +39,7 @@ const AddPlant = () => {
       iframLoc,
       addressLine,
       shortDesc,
+      sciName,
     } = pDetails;
     await addPlant(
       user.displayName,
@@ -52,7 +55,8 @@ const AddPlant = () => {
       iframLoc,
       addressLine,
       shortDesc,
-      longDesc
+      longDesc,
+      sciName
     );
   };
 
@@ -75,6 +79,17 @@ const AddPlant = () => {
             />
           </div>
 
+          <div className="">
+            <h5>Scientific Name</h5>
+            <input
+              onChange={onChange}
+              required={requiredState}
+              value={pDetails.sciName ? pDetails.sciName : ""}
+              name="sciName"
+              type="text "
+              className="border w-full outline-none py-1 mt-2 px-5"
+            />
+          </div>
           <div className="">
             <h5>Planted By</h5>
             <input
@@ -140,14 +155,20 @@ const AddPlant = () => {
         <div className="grid  md:grid-cols-2 grid-cols-1   gap-5">
           <div className="">
             <h5>Category</h5>
-            <input
-              type="text"
+            <select
               onChange={onChange}
               required={requiredState}
               value={pDetails.category ? pDetails.category : ""}
               name="category"
               className="border w-full outline-none py-1 mt-2 px-5"
-            />
+            >
+              <option value="Ayurvedic">Ayurvedic</option>
+              <option value="Fruit">Fruits</option>
+              <option value="Flower">Flowers</option>
+              <option value="Decorative">Decorative</option>
+              <option value="Climbers">Climbers</option>
+              <option value="Trees">Trees</option>
+            </select>
           </div>
         </div>
         <h2 className="font-semibold my-5 text-lg">Location</h2>

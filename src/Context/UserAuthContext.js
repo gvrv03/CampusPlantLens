@@ -29,26 +29,29 @@ export function UserAuthContexProvider({ children }) {
   }
 
   async function signWithGoogle() {
-    const googleAuthProvider = new GoogleAuthProvider();
-    const res = await signInWithPopup(auth, googleAuthProvider);
-    const { displayName, email, photoURL, reloadUserInfo, uid } = res.user;
-    await fetch("/api/signUp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userPhoto: photoURL,
-        fName: displayName,
-        email: email,
-        password: reloadUserInfo.passwordHash,
-        firebaseID: uid,
-      }),
-    });
-    localStorage.setItem("token", await res.user.getIdToken());
-    localStorage.setItem("firebaseuid", res.user.uid);
-    // console.log(res.user.getIdToken());
-    return res;
+    try {
+      const googleAuthProvider = new GoogleAuthProvider();
+      const res = await signInWithPopup(auth, googleAuthProvider);
+      const { displayName, email, photoURL, reloadUserInfo, uid } = res.user;
+      await fetch("/api/signUp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userPhoto: photoURL,
+          fName: displayName,
+          email: email,
+          password: reloadUserInfo.passwordHash,
+          firebaseID: uid,
+        }),
+      });
+      localStorage.setItem("token", await res.user.getIdToken());
+      localStorage.setItem("firebaseuid", res.user.uid);
+      return res;
+    } catch (error) {
+      console.log(error);
+    }
   }
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
