@@ -87,7 +87,7 @@ const Navbar = () => {
                 src="https://www.vectorlogo.zone/logos/google/google-tile.svg"
                 alt=""
               />
-              {/* <i class="bi bi-google"></i> */}
+              {/* <i className="bi bi-google"></i> */}
             </button>
           )}
 
@@ -195,9 +195,11 @@ const Navbar = () => {
 
             <li>
               <Link
-                href="/"
+                href="/Plantcategory"
                 className={` ${
-                  router.pathname == "/" ? "text-blue-700" : "text-gray-700"
+                  router.pathname == "/Plantcategory"
+                    ? "text-blue-700"
+                    : "text-gray-700"
                 } block py-2 pl-3 pr-4  rounded md:p-0 `}
                 aria-current="page"
               >

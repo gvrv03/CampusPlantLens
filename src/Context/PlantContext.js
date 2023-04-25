@@ -8,6 +8,10 @@ const plantContext = createContext();
 export function PlantContexProvider({ children }) {
   const [allPlants, setallPlants] = useState([]);
   const [effect, seteffect] = useState("");
+  const [updateState, setupdateState] = useState({
+    state: "hidden",
+    id: "",
+  });
   const [toastMsg, settoastMsg] = useState({
     state: "hidden",
     icon: "success",
@@ -27,6 +31,71 @@ export function PlantContexProvider({ children }) {
       icon: icon,
       msg: msg,
     });
+  };
+
+  const updatePlant = async (
+    writtenBy,
+    plantName,
+    plantedBy,
+    dateOfPlanted,
+    maintainedBy,
+    plantimage,
+    noOfPlants,
+    category,
+    longitude,
+    latitude,
+    iframLoc,
+    addressLine,
+    shortDesc,
+    longDesc,
+    sciName,
+    id
+  ) => {
+    const res = await fetch("/api/updatePlant", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        writtenBy,
+        plantName,
+        plantedBy,
+        dateOfPlanted,
+        maintainedBy,
+        plantimage,
+        noOfPlants,
+        category,
+        longitude,
+        latitude,
+        iframLoc,
+        addressLine,
+        shortDesc,
+        longDesc,
+        sciName,
+        id,
+      }),
+    });
+    const data = await res.json();
+    console.log(data);
+    if (data.msg) {
+      openModal("success", data.msg);
+    } else {
+      openModal("fail", data.error);
+    }
+  };
+
+  const getPlantById = async (id) => {
+    const res = await fetch("/api/getProductByID", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id,
+      }),
+    });
+    const data = await res.json();
+    return data;
   };
 
   const addPlant = async (
@@ -59,7 +128,7 @@ export function PlantContexProvider({ children }) {
         maintainedBy,
         plantimage,
         noOfPlants,
-        category, 
+        category,
         longitude,
         latitude,
         iframLoc,
@@ -88,9 +157,11 @@ export function PlantContexProvider({ children }) {
     const data = await res.json();
     setallPlants(data);
   };
+
+
   useEffect(() => {
     getPlant();
-  }, []);
+  }, [updateState]);
 
   return (
     <plantContext.Provider
@@ -99,6 +170,10 @@ export function PlantContexProvider({ children }) {
         closeModal,
         openModal,
         allPlants,
+        getPlantById,
+        updateState,
+        updatePlant,
+        setupdateState,
       }}
     >
       {" "}

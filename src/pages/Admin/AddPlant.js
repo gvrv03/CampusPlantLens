@@ -21,9 +21,6 @@ const AddPlant = () => {
       [e.target.name]: e.target.value,
     });
   };
-console.log(longDesc);
-  console.log(pDetails);
-  // console.log(user.displayName);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const {

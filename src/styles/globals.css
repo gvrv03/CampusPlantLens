@@ -10,3 +10,15 @@ body{
 .bgLight{
   background-color: rgba(0, 0, 0, 0.342);
 }
+.bgLight2{
+  background-color: rgba(0, 0, 0, 0.719);
+}
+/* Scrollbar width  */
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.h-90{
+  height: 90%;
+}
