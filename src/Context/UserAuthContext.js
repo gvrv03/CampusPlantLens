@@ -16,6 +16,7 @@ const userAuthContext = createContext();
 export function UserAuthContexProvider({ children }) {
   const [user, setuser] = useState("");
   const [token, settoken] = useState("");
+  const [allUserDetail, setallUserDetail] = useState({});
 
   useEffect(() => {
     const getToken = () => {
@@ -27,6 +28,30 @@ export function UserAuthContexProvider({ children }) {
   function logOut() {
     return signOut(auth);
   }
+
+  const getSingleUserData = async () => {
+    const res = await fetch(
+      "/api/User/" + localStorage.getItem("firebaseuid"),
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const userData = await res.json();
+    if (userData.error) {
+      return {
+        notFound: true,
+      };
+    }
+    setallUserDetail(userData);
+    return userData;
+  };
+
+  useEffect(() => {
+    getSingleUserData();
+  }, []);
 
   async function signWithGoogle() {
     try {
@@ -66,7 +91,7 @@ export function UserAuthContexProvider({ children }) {
     <userAuthContext.Provider
       value={{
         user,
-
+        allUserDetail,
         logOut,
         token,
         signWithGoogle,

@@ -3,10 +3,10 @@ export default function Home() {
     backgroundImage: "url('/gparvi.jpg')",
   };
   return (
-    <main className="h-screen">
+    <main className="h-screen   relative -mt-5">
       <div
         style={sectionStyle}
-        className=" h-3/4 bg-no-repeat bg-cover  left-0  w-full relative p-5 -z-40"
+        className=" h-3/4 bg-no-repeat bg-cover  flex items-center left-0  w-full relative p-5 -z-40"
       >
         <div className="absolute h-full w-full left-0 right-0 top-0  bgLight2 -z-50" />
         <LandingPage />

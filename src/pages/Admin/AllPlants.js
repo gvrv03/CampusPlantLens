@@ -17,9 +17,9 @@ const AllPlants = () => {
           onClick={() => {
             setpopUp({ state: "hidden", id: "" });
           }}
-          className="bgLight h-full left-0 right-0 w-full absolute top-0"
+          className="bgLight h-full left-0 cursor-pointer right-0 w-full absolute top-0"
         />
-        <div className="w-96 z-50 rounded-md grid place-items-center bg-white p-5  ">
+        <div className=" px-10 z-50 rounded-md grid place-items-center bg-white p-5  ">
           <img className="w-20" src="/aniIcon/information.gif" alt="Info" />
           <div className="font-semibold my-5">Are yo sure to delete ?</div>
           <div className=" flex gap-5">
