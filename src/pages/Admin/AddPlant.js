@@ -38,7 +38,7 @@ const AddPlant = () => {
       shortDesc,
       sciName,
     } = pDetails;
-    await addPlant(
+   const res =  await addPlant(
       user.displayName,
       plantName,
       plantedBy,
@@ -55,6 +55,9 @@ const AddPlant = () => {
       longDesc,
       sciName
     );
+
+    console.log(res);
+    setpDetails({});
   };
 
   return (

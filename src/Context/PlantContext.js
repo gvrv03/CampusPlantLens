@@ -84,6 +84,20 @@ export function PlantContexProvider({ children }) {
     }
   };
 
+  const deletePlantById = async (id) => {
+    const res = await fetch("/api/deletePlantById", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id,
+      }),
+    });
+    const data = await res.json();
+    return data;
+  };
+
   const getPlantById = async (id) => {
     const res = await fetch("/api/getProductByID", {
       method: "POST",
@@ -158,10 +172,9 @@ export function PlantContexProvider({ children }) {
     setallPlants(data);
   };
 
-
   useEffect(() => {
     getPlant();
-  }, [updateState]);
+  }, [updateState,deletePlantById]);
 
   return (
     <plantContext.Provider
@@ -172,6 +185,7 @@ export function PlantContexProvider({ children }) {
         allPlants,
         getPlantById,
         updateState,
+        deletePlantById,
         updatePlant,
         setupdateState,
       }}
