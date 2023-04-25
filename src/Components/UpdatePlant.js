@@ -5,6 +5,7 @@ import "suneditor/dist/css/suneditor.min.css"; // Import Sun Editor's CSS File
 import { Content } from "next/font/google";
 import { usePlantContext } from "campusplantlens/Context/PlantContext";
 import { useUserAuth } from "campusplantlens/Context/UserAuthContext";
+import { useRouter } from "next/router";
 
 const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
@@ -17,15 +18,18 @@ const UpdatePlant = () => {
   const [longDesc, setlongDesc] = useState("");
   const [desc, setdesc] = useState("");
   const { user } = useUserAuth();
+  const router = useRouter();
   const [requiredState, setRequired] = useState(false);
   useEffect(() => {
     const getPlant = async () => {
       const res = await getPlantById(updateState.id);
       setpDetails(res);
+
       setlongDesc(res.longDesc);
     };
     getPlant();
   }, []);
+  console.log(longDesc);
 
   const onChange = (e) => {
     setpDetails({
@@ -269,110 +273,112 @@ const UpdatePlant = () => {
               ></textarea>
             </div>
 
-            <div className="">
-              <h5>Long Desc</h5>
-              <SunEditor
-                defaultValue={longDesc ? longDesc : "Waiting..."}
-                onChange={(content) => {
-                  setlongDesc(content);
-                }}
-                placeholder="Write brief information"
-                height="100%"
-                setOptions={{
-                  mode: "Classic",
+            {longDesc && (
+              <div className="">
+                <h5>Long Desc</h5>
+                <SunEditor
+                  defaultValue={longDesc}
+                  onChange={(content) => {
+                    setlongDesc(content);
+                  }}
+                  placeholder="Write brief information"
+                  height="100%"
+                  setOptions={{
+                    mode: "Classic",
 
-                  rtl: false,
+                    rtl: false,
 
-                  katex: "window.katex",
+                    katex: "window.katex",
 
-                  imageGalleryUrl:
-                    "https://etyswjpn79.execute-api.ap-northeast-1.amazonaws.com/suneditor-demo",
+                    imageGalleryUrl:
+                      "https://etyswjpn79.execute-api.ap-northeast-1.amazonaws.com/suneditor-demo",
 
-                  videoFileInput: false,
+                    videoFileInput: false,
 
-                  tabDisable: false,
-                  buttonList: [
-                    [
-                      "undo",
+                    tabDisable: false,
+                    buttonList: [
+                      [
+                        "undo",
 
-                      "redo",
+                        "redo",
 
-                      "font",
+                        "font",
 
-                      "fontSize",
+                        "fontSize",
 
-                      "formatBlock",
+                        "formatBlock",
 
-                      "paragraphStyle",
+                        "paragraphStyle",
 
-                      "blockquote",
+                        "blockquote",
 
-                      "bold",
+                        "bold",
 
-                      "underline",
+                        "underline",
 
-                      "italic",
+                        "italic",
 
-                      "strike",
+                        "strike",
 
-                      "subscript",
+                        "subscript",
 
-                      "superscript",
+                        "superscript",
 
-                      "fontColor",
+                        "fontColor",
 
-                      "hiliteColor",
+                        "hiliteColor",
 
-                      "textStyle",
+                        "textStyle",
 
-                      "removeFormat",
+                        "removeFormat",
 
-                      "outdent",
+                        "outdent",
 
-                      "indent",
+                        "indent",
 
-                      "align",
+                        "align",
 
-                      "horizontalRule",
+                        "horizontalRule",
 
-                      "list",
+                        "list",
 
-                      "lineHeight",
+                        "lineHeight",
 
-                      "table",
+                        "table",
 
-                      "link",
+                        "link",
 
-                      "image",
+                        "image",
 
-                      "video",
+                        "video",
 
-                      "audio",
+                        "audio",
 
-                      "math",
+                        "math",
 
-                      "imageGallery",
+                        "imageGallery",
 
-                      "fullScreen",
+                        "fullScreen",
 
-                      "showBlocks",
+                        "showBlocks",
 
-                      "codeView",
+                        "codeView",
 
-                      "preview",
+                        "preview",
 
-                      "print",
+                        "print",
 
-                      "save",
+                        "save",
 
-                      "template",
+                        "template",
+                      ],
                     ],
-                  ],
 
-                  "lang(In nodejs)": "en",
-                }}
-              />
-            </div>
+                    "lang(In nodejs)": "en",
+                  }}
+                />
+              </div>
+            )}
           </div>
 
           <button
