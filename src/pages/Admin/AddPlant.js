@@ -12,7 +12,7 @@ const SunEditor = dynamic(() => import("suneditor-react"), {
 const AddPlant = () => {
   const [pDetails, setpDetails] = useState({});
   const [longDesc, setlongDesc] = useState();
-  const { addPlant } = usePlantContext();
+  const { addPlant, seteffect } = usePlantContext();
   const { user } = useUserAuth();
   const [requiredState, setRequired] = useState(false);
   const onChange = (e) => {
@@ -38,7 +38,7 @@ const AddPlant = () => {
       shortDesc,
       sciName,
     } = pDetails;
-   const res =  await addPlant(
+    const res = await addPlant(
       user.displayName,
       plantName,
       plantedBy,
@@ -56,8 +56,10 @@ const AddPlant = () => {
       sciName
     );
 
-    console.log(res);
-    setpDetails({});
+    if (res.msg) {
+      setpDetails({});
+    }
+    seteffect(Math.random());
   };
 
   return (
@@ -166,7 +168,7 @@ const AddPlant = () => {
               <option value="Fruit">Fruits</option>
               <option value="Flower">Flowers</option>
               <option value="Decorative">Decorative</option>
-              <option value="Climbers">Climbers</option>
+              <option value="Climbers">Plants</option>
               <option value="Trees">Trees</option>
             </select>
           </div>

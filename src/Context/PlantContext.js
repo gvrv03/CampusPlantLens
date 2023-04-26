@@ -7,7 +7,7 @@ import { useState } from "react";
 const plantContext = createContext();
 export function PlantContexProvider({ children }) {
   const [allPlants, setallPlants] = useState([]);
-  const [effect, seteffect] = useState("");
+  const [effect, seteffect] = useState("fhgdsgfsdha");
   const [updateState, setupdateState] = useState({
     state: "hidden",
     id: "",
@@ -95,6 +95,7 @@ export function PlantContexProvider({ children }) {
       }),
     });
     const data = await res.json();
+    seteffect(Math.random());
     return data;
   };
 
@@ -174,7 +175,7 @@ export function PlantContexProvider({ children }) {
 
   useEffect(() => {
     getPlant();
-  }, [updateState,deletePlantById]);
+  }, [effect]);
 
   return (
     <plantContext.Provider
@@ -188,6 +189,7 @@ export function PlantContexProvider({ children }) {
         deletePlantById,
         updatePlant,
         setupdateState,
+        seteffect,
       }}
     >
       {" "}

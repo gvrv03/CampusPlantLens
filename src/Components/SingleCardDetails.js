@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React from "react";
 
-const SingleCard = (props) => {
+const SingleCardDetails = (props) => {
   return (
-    <div className="bg-white  rounded-lg">
+    <div className="bg-white  rounded-lg h-96 ">
       <div className="h-full border-2 border-gray-200 border-opacity-60  overflow-hidden">
         <img
           className="lg:h-48 md:h-36 h-56 w-full object-cover object-center"
@@ -12,15 +12,16 @@ const SingleCard = (props) => {
         />
         <div className="p-6">
           <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1 ">
-            PLANT CATEGORY
+          {props.category}
           </h2>
           <h1 className="title-font text-lg font  font-semibold text-gray-900 mb-3">
-            {props.category}
+          {props.plantName}
           </h1>
           <p className="leading-relaxed mb-3">{props.info}</p>
           <div className="flex items-center flex-wrap ">
             <Link
-              href={`/Category/${props.category}`}
+              target="_blank"
+              href={`/Plant/${props.id}`}
               className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
             >
               View Plants
@@ -44,4 +45,4 @@ const SingleCard = (props) => {
   );
 };
 
-export default SingleCard;
+export default SingleCardDetails;

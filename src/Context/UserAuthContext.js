@@ -25,8 +25,11 @@ export function UserAuthContexProvider({ children }) {
     getToken();
   }, []);
 
-  function logOut() {
-    return signOut(auth);
+  async function logOut() {
+    const res = await signOut(auth);
+    localStorage.removeItem("firebaseuid");
+    localStorage.removeItem("token");
+    return;
   }
 
   const getSingleUserData = async () => {

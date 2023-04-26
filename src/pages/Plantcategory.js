@@ -16,7 +16,7 @@ const Plantcategory = () => {
                         <SingleCard category="Fruits" info="Healthy fruits beneficial for a healthy and prosperous life." image="https://wallpaperaccess.com/full/2446201.jpg" />
                         <SingleCard category="Flowers" info="A big variety and collection of flowers in the college campus." image="https://w0.peakpx.com/wallpaper/275/227/HD-wallpaper-nature-flowers-macro-plants.jpg" />
                         <SingleCard category="Decorative" info="Decorative plants increasing the campus area's beauty. " image="https://images.jdmagicbox.com/quickquotes/images_main/artificial-plant-2216557070-zv7iztnz.jpg" />
-                        <SingleCard category="Climbers" info="Some planted or auto-grown climbers in the campus." image="https://previews.123rf.com/images/leksuperphoto/leksuperphoto1609/leksuperphoto160900034/65114098-wooden-and-climbing-plants-of-wall-contrast-background.jpg" />
+                        <SingleCard category="Plants" info="Some planted or auto-grown climbers in the campus." image="https://previews.123rf.com/images/leksuperphoto/leksuperphoto1609/leksuperphoto160900034/65114098-wooden-and-climbing-plants-of-wall-contrast-background.jpg" />
                         <SingleCard category="Trees" info="A varietry of trees around the whole college building." image="https://static.vecteezy.com/system/resources/thumbnails/004/773/831/small/one-tree-in-the-meadow-love-nature-love-trees-3d-free-photo.jpg" />
                     </div>
                 </div>
