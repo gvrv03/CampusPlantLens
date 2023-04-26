@@ -2,6 +2,7 @@ import SingleCard from "campusplantlens/Components/SingleCard";
 import SingleCardDetails from "campusplantlens/Components/SingleCardDetails";
 import { usePlantContext } from "campusplantlens/Context/PlantContext";
 import PlantsLayout from "campusplantlens/Layout/PlantsLayout";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -15,7 +16,16 @@ const Category = () => {
   return (
     <PlantsLayout>
       <div className="relative h-screen">
-        <div className="bg-white p-5">Home / plant Category / {router.query.cat}</div>
+        <div className="bg-white p-5">
+          <Link href="/" className="cursor-pointer">
+            Home
+          </Link>{" "}
+          /{" "}
+          <Link href="/Plantcategory" className="cursor-pointer">
+            plant Category /
+          </Link>{" "}
+          {router.query.cat}
+        </div>
 
         {category.length === 0 && (
           <div className="bg-white p-5 mt-5 font-semibold text-center pt-56 w-full h-full">

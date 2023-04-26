@@ -24,6 +24,12 @@ const Admin = ({ children }) => {
             </button>
 
             <button className=" w-full text-left  font-semibold">
+              <Link href="/Admin/AddImages" className="  ">
+                Add Plant Images
+              </Link>
+            </button>
+
+            <button className=" w-full text-left  font-semibold">
               <Link href="" className="  ">
                 Plants
               </Link>

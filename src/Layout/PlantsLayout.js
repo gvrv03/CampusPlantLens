@@ -5,8 +5,8 @@ import React from "react";
 const PlantsLayout = ({ children }) => {
   return (
     <section className="h-screen mt-20   ">
-      <div className=" container gap-5 flex-col md:flex-row flex h-full   m-auto">
-        <div className="w-full  overflow-y-scroll  sm:w-9/12">{children}</div>
+      <div className=" container gap-5 flex-col md:flex-row flex    m-auto">
+        <div className="w-full  overflow-y-scroll h-screen  sm:w-9/12">{children}</div>
         <div className="w-full flex flex-col gap-2 p-5 md:w-3/12 bg-white ">
           <Category
             category="Ayurvedic"
@@ -45,7 +45,6 @@ const PlantsLayout = ({ children }) => {
 
 const Category = (props) => {
   const router = useRouter();
-  console.log(router.asPath);
   return (
     <Link
       href={`/Category/${props.category}`}

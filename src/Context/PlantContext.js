@@ -84,6 +84,26 @@ export function PlantContexProvider({ children }) {
     }
   };
 
+  const addImagesByPlantName = async (plantName, imgUrl) => {
+    const res = await fetch("/api/addImages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        imageUrl: imgUrl,
+        plantName: plantName,
+      }),
+    });
+    const data = await res.json();
+    seteffect(Math.random());
+    if (data.msg) {
+      openModal("success", data.msg);
+    } else {
+      openModal("fail", data.error);
+    }
+  };
+
   const deletePlantById = async (id) => {
     const res = await fetch("/api/deletePlantById", {
       method: "POST",
@@ -190,6 +210,7 @@ export function PlantContexProvider({ children }) {
         updatePlant,
         setupdateState,
         seteffect,
+        addImagesByPlantName,
       }}
     >
       {" "}

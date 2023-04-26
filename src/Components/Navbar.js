@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="z-50 bg-white  shadow-md fixed left-0 right-0 top-0  border-gray-200 px-2 sm:px-4 py-2.5 rounded ">
-        <div className="w-full flex flex-wrap items-center px-5 justify-between  mx-auto">
+        <div className="w-full container m-auto flex flex-wrap items-center px-5 justify-between  mx-auto">
           <Link href="/" className="flex items-center">
             <img
               src="https://www.gparvi.ac.in/images/arvi_logo.jpg"
