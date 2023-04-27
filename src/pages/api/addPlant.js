@@ -38,7 +38,7 @@ const addPlant = async (req, res) => {
   }
   try {
     const checkPlant = await Plant.findOne({ plantName });
-    if (!checkPlant) {
+    if (checkPlant) {
       return res.status(500).json({ error: plantName + " Already Exists" });
     }
 
