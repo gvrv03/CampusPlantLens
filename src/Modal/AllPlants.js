@@ -1,11 +1,14 @@
 import mongoose, { models } from "mongoose";
 const { Schema } = mongoose;
+const { ObjectId } = mongoose.Schema.Types;
 
 const plantAllSchema = new Schema(
   {
+    addedBy: String,
+    plantID: String,
     plantedBy: String,
     dateOfPlanted: String,
-    noOfPlants: String,
+    plantimage: String,
     longitude: String,
     latitude: String,
     iframLoc: String,
@@ -15,6 +18,10 @@ const plantAllSchema = new Schema(
         type: String,
       },
     ],
+    PlantDetails: {
+      type: ObjectId,
+      ref: "plant",
+    },
   },
   { timestamps: true }
 );

@@ -1,5 +1,6 @@
 import initDB from "campusplantlens/Helpers/initDB";
 import Plant from "campusplantlens/Modal/Plant";
+import AllPlants from "campusplantlens/Modal/AllPlants";
 initDB();
 
 export default async (req, res) => {
@@ -15,43 +16,52 @@ export default async (req, res) => {
 
 const addPlant = async (req, res) => {
   const {
-    writtenBy,
+    addedBy,
     plantName,
-    maintainedBy,
+    plantedBy,
+    dateOfPlanted,
     plantimage,
-    category,
-    shortDesc,
-    longDesc,
-    sciName,
+    longitude,
+    latitude,
+    iframLoc,
+    addressLine,
   } = req.body;
+
   if (
-    !writtenBy ||
+    !addedBy ||
     !plantName ||
-    !maintainedBy ||
+    !plantedBy ||
+    !dateOfPlanted ||
     !plantimage ||
-    !category ||
-    !shortDesc ||
-    !longDesc ||
-    !sciName
+    !longitude ||
+    !latitude ||
+    !iframLoc ||
+    !addressLine
   ) {
     return res.status(404).json({ error: "Fill all the fields" });
   }
+
   try {
-    const checkPlant = await Plant.findOne({ plantName });
-    if (!checkPlant) {
-      return res.status(500).json({ error: plantName + " Already Exists" });
+    const findPlant = await Plant.findOne({ plantName });
+    if (!findPlant) {
+      return res.status(500).json({ error: plantName + " Not Exists" });
     }
 
-    const result = await Plant({
-      writtenBy,
-      plantName,
-      maintainedBy,
+    const count = await AllPlants.find({ PlantDetails: findPlant._id });
+
+    const result = await AllPlants({
+      addedBy,
+      plantID: plantName + " - " + count.length,
+      plantedBy,
+      dateOfPlanted,
       plantimage,
-      category,
-      shortDesc,
-      longDesc,
-      sciName,
+      longitude,
+      latitude,
+      iframLoc,
+      addressLine,
+      PlantDetails: findPlant._id,
     }).save();
+
     return res.status(201).json({ msg: "Plant Added", result });
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
@@ -60,8 +70,7 @@ const addPlant = async (req, res) => {
 
 const getPlants = async (req, res) => {
   try {
-    const allPlants = await Plant.find();
-
+    const allPlants = await AllPlants.find().populate("PlantDetails");
     return res.status(201).json(allPlants);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });

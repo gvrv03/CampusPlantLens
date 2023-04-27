@@ -119,6 +119,43 @@ export function PlantContexProvider({ children }) {
     return data;
   };
 
+  const addExisPlant = async (
+    addedBy,
+    plantName,
+    plantedBy,
+    dateOfPlanted,
+    plantimage,
+    longitude,
+    latitude,
+    iframLoc,
+    addressLine
+  ) => {
+    const res = await fetch("/api/addExisPlant", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        addedBy,
+        plantName,
+        plantedBy,
+        dateOfPlanted,
+        plantimage,
+        longitude,
+        latitude,
+        iframLoc,
+        addressLine,
+      }),
+    });
+    const data = await res.json();
+    seteffect(Math.random());
+    if (data.msg) {
+      openModal("success", data.msg);
+    } else {
+      openModal("fail", data.error);
+    }
+  };
+
   const addPlant = async (
     writtenBy,
     plantName,
@@ -183,6 +220,7 @@ export function PlantContexProvider({ children }) {
         setupdateState,
         seteffect,
         addImagesByPlantName,
+        addExisPlant,
       }}
     >
       {" "}
