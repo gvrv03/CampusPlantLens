@@ -13,6 +13,7 @@ const Category = () => {
     return router.query.cat === plant.category;
   });
   console.log(category);
+  console.log(category);
   return (
     <PlantsLayout>
       <div className=" ">
@@ -43,7 +44,7 @@ const Category = () => {
                   id={_id}
                   plantName={plantName}
                   info={shortDesc}
-                  image="https://previews.123rf.com/images/leksuperphoto/leksuperphoto1609/leksuperphoto160900034/65114098-wooden-and-climbing-plants-of-wall-contrast-background.jpg"
+                  image={plantimage}
                 />
               );
             })}

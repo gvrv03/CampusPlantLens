@@ -151,7 +151,7 @@ const UpdatePlant = () => {
               >
                 <option value="Ayurvedic">Ayurvedic</option>
                 <option value="Fruits">Fruits</option>
-                <option value="Flower">Flowers</option>
+                <option value="Flowers">Flowers</option>
                 <option value="Decorative">Decorative</option>
                 <option value="Climbers">Climbers</option>
                 <option value="Trees">Trees</option>
