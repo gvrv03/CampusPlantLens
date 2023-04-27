@@ -6,7 +6,7 @@ const PlantsLayout = ({ children }) => {
   return (
     <section className=" pt-20  h-full ">
       <div className=" container gap-5  flex-col md:flex-row flex    m-auto">
-        <div className="w-full  overflow-y-scroll   sm:w-9/12">
+        <div className="w-full  overflow-y-scroll px-5   sm:w-9/12">
           {children}
         </div>
         <div className="w-full h-fit flex flex-col gap-2 p-5 md:w-3/12 bg-white ">

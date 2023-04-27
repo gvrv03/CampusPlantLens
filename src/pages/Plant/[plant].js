@@ -17,24 +17,13 @@ const PlantDetail = ({ plantDetails }) => {
   const {
     writtenBy,
     plantName,
-    plantedBy,
-    dateOfPlanted,
     maintainedBy,
     plantimage,
-    noOfPlants,
     category,
-    longitude,
-    latitude,
-    iframLoc,
-    addressLine,
     shortDesc,
     updatedAt,
-    longDesc,
-    sciName,
-    plantImages,
-  } = plantDetails;
+  } = plantDetails ? plantDetails : {};
   const date = new Date(updatedAt);
-  const plantedDate = new Date(dateOfPlanted);
 
   const Navigator = () => {
     return (
@@ -90,20 +79,6 @@ const PlantDetail = ({ plantDetails }) => {
                   {" "}
                   Category : {category}
                 </span>
-                <span className="sm:text-lg text-xs font-medium">
-                  No of Plants : {noOfPlants}
-                </span>
-                <div>
-                  <div className="sm:text-lg text-xs font-medium">
-                    Planted by : <span className="font-bold">{plantedBy}</span>{" "}
-                    on •{" "}
-                    {plantedDate.getDate() +
-                      "/" +
-                      (plantedDate.getMonth() + 1) +
-                      "/" +
-                      plantedDate.getFullYear()}
-                  </div>
-                </div>
                 <div className="sm:text-lg text-xs font-light">{shortDesc}</div>
               </div>
               {newLink && (
@@ -125,7 +100,7 @@ const PlantDetail = ({ plantDetails }) => {
                   className="w-4 h-4 border rounded-full "
                 />
                 <p className="sm:text-lg text-xs">
-                  Last Updated : {writtenBy} • {" "}
+                  Last Updated : {writtenBy} •{" "}
                   {date.getDate() +
                     "/" +
                     (date.getMonth() + 1) +
@@ -141,7 +116,7 @@ const PlantDetail = ({ plantDetails }) => {
             {navigateState === 1 ? (
               <SinglePlantDetail />
             ) : (
-              <Images plantImages={plantImages} />
+              <Images plantImages="jagfaj" />
             )}
           </div>
         </article>

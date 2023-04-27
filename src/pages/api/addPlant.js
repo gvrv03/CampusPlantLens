@@ -17,16 +17,9 @@ const addPlant = async (req, res) => {
   const {
     writtenBy,
     plantName,
-    plantedBy,
-    dateOfPlanted,
     maintainedBy,
     plantimage,
-    noOfPlants,
     category,
-    longitude,
-    latitude,
-    iframLoc,
-    addressLine,
     shortDesc,
     longDesc,
     sciName,
@@ -34,16 +27,9 @@ const addPlant = async (req, res) => {
   if (
     !writtenBy ||
     !plantName ||
-    !plantedBy ||
-    !dateOfPlanted ||
     !maintainedBy ||
     !plantimage ||
-    !noOfPlants ||
     !category ||
-    !longitude ||
-    !latitude ||
-    !iframLoc ||
-    !addressLine ||
     !shortDesc ||
     !longDesc ||
     !sciName
@@ -54,16 +40,9 @@ const addPlant = async (req, res) => {
     const result = await Plant({
       writtenBy,
       plantName,
-      plantedBy,
-      dateOfPlanted,
       maintainedBy,
       plantimage,
-      noOfPlants,
       category,
-      longitude,
-      latitude,
-      iframLoc,
-      addressLine,
       shortDesc,
       longDesc,
       sciName,

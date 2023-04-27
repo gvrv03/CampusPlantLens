@@ -1,36 +1,45 @@
-import React from 'react';
-import { Slide } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css';
+import React from "react";
+import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
 
 const Slideshow = () => {
-    const images = [
-        "https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-        "https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80",
-        "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-    ];
+  const images = ["/College/5.jpg", "/College/6.jpg", "/College/7.jpg"];
 
-    return (
-        <Slide>
-            <div className="each-slide-effect">
-                <div style={{ 'backgroundImage': `url(${images[0]})` }}>
-                    <span>Slide 1</span>
-                </div>
-            </div>
+  return (
+    <Slide>
+      <div className="each-slide-effect">
+        <div
+          className=" relative  bg-cover flex items-center"
+          style={{ backgroundImage: `url(${images[0]})` }}
+        >
+          <div className="absolute w-full  bgLight2 h-full" />
 
-            <div className="each-slide-effect">
-                <div style={{ 'backgroundImage': `url(${images[1]})` }}>
-                    <span>Slide 2</span>
-                </div>
-            </div>
-
-            <div className="each-slide-effect">
-                <div style={{ 'backgroundImage': `url(${images[2]})` }}>
-                    <span>Slide 3</span>
-                </div>
-            </div>
+          <h1 className="text-green-300 font-extrabold z-50 text-8xl  mt-32 ">
+            Campus Plant Lens <br />
             
-        </Slide>
-    );
+          </h1>
+        </div>
+      </div>
+
+      <div className="each-slide-effect">
+        <div
+          className="relative  bg-cover "
+          style={{ backgroundImage: `url(${images[1]})` }}
+        >
+          <div className="absolute w-full  bgLight2 h-full" />
+        </div>
+      </div>
+
+      <div className="each-slide-effect">
+        <div
+          className="relative  bg-cover "
+          style={{ backgroundImage: `url(${images[2]})` }}
+        >
+          <div className="absolute w-full  bgLight2 h-full" />
+        </div>
+      </div>
+    </Slide>
+  );
 };
 
 export default Slideshow;

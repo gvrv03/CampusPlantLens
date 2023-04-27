@@ -25,40 +25,26 @@ const AddPlant = () => {
     e.preventDefault();
     const {
       plantName,
-      plantedBy,
-      dateOfPlanted,
       maintainedBy,
       plantimage,
-      noOfPlants,
       category,
-      longitude,
-      latitude,
-      iframLoc,
-      addressLine,
       shortDesc,
       sciName,
     } = pDetails;
     const res = await addPlant(
       user.displayName,
       plantName,
-      plantedBy,
-      dateOfPlanted,
       maintainedBy,
       plantimage,
-      noOfPlants,
       category,
-      longitude,
-      latitude,
-      iframLoc,
-      addressLine,
       shortDesc,
       longDesc,
       sciName
     );
 
-    if (res.msg) {
-      setpDetails({});
-    }
+    // if (res.msg) {
+    //   setpDetails({});
+    // }
     seteffect(Math.random());
   };
 
@@ -80,7 +66,6 @@ const AddPlant = () => {
               className="border w-full outline-none py-1 mt-2 px-5"
             />
           </div>
-
           <div className="">
             <h5>Scientific Name</h5>
             <input
@@ -93,30 +78,6 @@ const AddPlant = () => {
             />
           </div>
           <div className="">
-            <h5>Planted By</h5>
-            <input
-              type="text "
-              onChange={onChange}
-              required={requiredState}
-              value={pDetails.plantedBy ? pDetails.plantedBy : ""}
-              name="plantedBy"
-              className="border w-full outline-none py-1 mt-2 px-5"
-            />
-          </div>
-
-          <div className="">
-            <h5>Date of plant</h5>
-            <input
-              type="date"
-              onChange={onChange}
-              required={requiredState}
-              value={pDetails.dateOfPlanted ? pDetails.dateOfPlanted : ""}
-              name="dateOfPlanted"
-              className="border w-full outline-none py-1 mt-2 px-5"
-            />
-          </div>
-
-          <div className="">
             <h5>Maintained By</h5>
             <input
               type="text"
@@ -127,27 +88,14 @@ const AddPlant = () => {
               className="border w-full outline-none py-1 mt-2 px-5"
             />
           </div>
-
           <div className="">
             <h5>Plant Image</h5>
             <input
-              type="text"
+              type="url"
               onChange={onChange}
               required={requiredState}
               value={pDetails.plantimage ? pDetails.plantimage : ""}
               name="plantimage"
-              className="border w-full outline-none py-1 mt-2 px-5"
-            />
-          </div>
-
-          <div className="">
-            <h5>No. Of Plants</h5>
-            <input
-              type="number"
-              onChange={onChange}
-              required={requiredState}
-              value={pDetails.noOfPlants ? pDetails.noOfPlants : ""}
-              name="noOfPlants"
               className="border w-full outline-none py-1 mt-2 px-5"
             />
           </div>
@@ -171,55 +119,6 @@ const AddPlant = () => {
               <option value="Climbers">Plants</option>
               <option value="Trees">Trees</option>
             </select>
-          </div>
-        </div>
-        <h2 className="font-semibold my-5 text-lg">Location</h2>
-        <div className="grid  md:grid-cols-2 grid-cols-1   gap-5">
-          <div className="">
-            <h5>Longitude</h5>
-            <input
-              type="text"
-              onChange={onChange}
-              required={requiredState}
-              value={pDetails.longitude ? pDetails.longitude : ""}
-              name="longitude"
-              className="border w-full outline-none py-1 mt-2 px-5"
-            />
-          </div>
-          <div className="">
-            <h5>latitude</h5>
-            <input
-              type="text"
-              onChange={onChange}
-              required={requiredState}
-              value={pDetails.latitude ? pDetails.latitude : ""}
-              name="latitude"
-              className="border w-full outline-none py-1 mt-2 px-5"
-            />
-          </div>
-
-          <div className="">
-            <h5>IFrame Location</h5>
-            <input
-              type="text"
-              onChange={onChange}
-              required={requiredState}
-              value={pDetails.iframLoc ? pDetails.iframLoc : ""}
-              name="iframLoc"
-              className="border w-full outline-none py-1 mt-2 px-5"
-            />
-          </div>
-
-          <div className="">
-            <h5>Address Line</h5>
-            <input
-              type="text"
-              onChange={onChange}
-              required={requiredState}
-              value={pDetails.addressLine ? pDetails.addressLine : ""}
-              name="addressLine"
-              className="border w-full outline-none py-1 mt-2 px-5"
-            />
           </div>
         </div>
 

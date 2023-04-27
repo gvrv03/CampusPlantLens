@@ -13,8 +13,7 @@ export default async (req, res) => {
   }
 };
 
-
-const deletePlant = async (req,res) => {
+const deletePlant = async (req, res) => {
   try {
     const { id } = req.body;
     console.log("Hey");
@@ -29,16 +28,10 @@ const updatePlant = async (req, res) => {
   const {
     writtenBy,
     plantName,
-    plantedBy,
-    dateOfPlanted,
+
     maintainedBy,
     plantimage,
-    noOfPlants,
     category,
-    longitude,
-    latitude,
-    iframLoc,
-    addressLine,
     shortDesc,
     longDesc,
     sciName,
@@ -47,16 +40,9 @@ const updatePlant = async (req, res) => {
   if (
     !writtenBy ||
     !plantName ||
-    !plantedBy ||
-    !dateOfPlanted ||
     !maintainedBy ||
     !plantimage ||
-    !noOfPlants ||
     !category ||
-    !longitude ||
-    !latitude ||
-    !iframLoc ||
-    !addressLine ||
     !shortDesc ||
     !longDesc ||
     !sciName ||
@@ -68,16 +54,9 @@ const updatePlant = async (req, res) => {
     const data = await Plant.findByIdAndUpdate(id, {
       writtenBy,
       plantName,
-      plantedBy,
-      dateOfPlanted,
       maintainedBy,
       plantimage,
-      noOfPlants,
       category,
-      longitude,
-      latitude,
-      iframLoc,
-      addressLine,
       shortDesc,
       longDesc,
       sciName,

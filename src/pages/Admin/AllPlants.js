@@ -63,9 +63,6 @@ const AllPlants = () => {
                 Plant Category
               </th>
               <th scope="col" className="px-6 py-3">
-                Plant Planted By
-              </th>
-              <th scope="col" className="px-6 py-3">
                 Plant Added by
               </th>
               <th scope="col" className="px-6 py-3">
@@ -76,8 +73,7 @@ const AllPlants = () => {
           <tbody>
             {allPlants &&
               allPlants.map((plant, index) => {
-                const { plantName, category, plantedBy, writtenBy, _id } =
-                  plant;
+                const { plantName, category, writtenBy, _id } = plant;
                 return (
                   <>
                     <tr className="bg-white border-b " key={index}>
@@ -88,7 +84,6 @@ const AllPlants = () => {
                         {plantName}
                       </th>
                       <td className="px-6 py-4">{category}</td>
-                      <td className="px-6 py-4">{plantedBy}</td>
                       <td className="px-6 py-4">{writtenBy}</td>
                       <td className="px-6 py-4 flex gap-2 items-center">
                         <div

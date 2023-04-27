@@ -31,21 +31,9 @@ export default function Home() {
     //     </div>
     //   </div>{" "}
     // </main>
-    <main>
+    <main className=" relative">
       <Slideshow/>
     </main>
   );
 }
 
-const LandingPage = () => {
-  return (
-    <section className="mx-10">
-      <div className="mt-20">
-        <h1 className="font-bold text-6xl text-white">
-          Government Polytechnic,
-          <br /> Arvi
-        </h1>
-      </div>
-    </section>
-  );
-};
