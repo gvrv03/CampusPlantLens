@@ -1,19 +1,18 @@
 import SingleCard from "campusplantlens/Components/SingleCard";
 import SingleCardDetails from "campusplantlens/Components/SingleCardDetails";
+import SingleDetailsCard from "campusplantlens/Components/SingleDetailsCard";
 import { usePlantContext } from "campusplantlens/Context/PlantContext";
 import PlantsLayout from "campusplantlens/Layout/PlantsLayout";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
-const Category = () => {
+const PlantsAll = () => {
   const router = useRouter();
-  const { allPlants } = usePlantContext();
-  const category = allPlants.filter((plant) => {
-    return router.query.cat === plant.category;
+  const { allExisPlants } = usePlantContext();
+  const plantTotal = allExisPlants.filter((plant) => {
+    return router.query.id === plant.PlantDetails._id;
   });
-  console.log(category);
-  console.log(category);
   return (
     <PlantsLayout>
       <div className=" ">
@@ -25,23 +24,25 @@ const Category = () => {
           <Link href="/Plantcategory" className="cursor-pointer">
             plant Category /
           </Link>{" "}
-          {router.query.cat}
+          {router.query.pname}
         </div>
 
-        {category.length === 0 && (
+        {plantTotal.length === 0 && (
           <div className="bg-white p-5 mt-5 font-semibold text-center h-screen w-full grid place-items-center">
-            {router.query.cat} not Founds
+            {router.query.pname} not Founds
           </div>
         )}
         <div className="grid grid-cols-1 h-full md:grid-cols-3 gap-5 mt-5">
-          {category &&
-            category.map((item, index) => {
-              const { category, shortDesc, plantimage, plantName, _id } = item;
+          {plantTotal &&
+            plantTotal.map((item, index) => {
+              const { PlantDetails, plantimage, _id, plantID } = item;
+              const { category, shortDesc, plantName } = PlantDetails;
               return (
-                <SingleCardDetails
+                <SingleDetailsCard
                   category={category}
                   key={index}
                   id={_id}
+                  pID={plantID}
                   plantName={plantName}
                   info={shortDesc}
                   image={plantimage}
@@ -54,4 +55,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default PlantsAll;

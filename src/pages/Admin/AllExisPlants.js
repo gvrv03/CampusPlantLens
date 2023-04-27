@@ -67,10 +67,21 @@ const AllExisPlants = () => {
           All Existing Plant
         </Link>
       </div>
+      <input
+        type="text"
+        name=""
+        className="border w-full my-5 outline-none px-5 py-2 rounded-full"
+        placeholder="Search Plant"
+        id=""
+      />
+
       <div className="border mt-5 overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 ">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50  ">
             <tr>
+              <th scope="col" className="text-center px-6 py-3">
+                Sr.No.
+              </th>
               <th scope="col" className="px-6 py-3">
                 Plant ID
               </th>
@@ -100,6 +111,7 @@ const AllExisPlants = () => {
                 const { plantName, category } = PlantDetails;
                 return (
                   <tr className="bg-white border-b " key={index}>
+                    <td className="px-6 text-center py-4">{index + 1}</td>
                     <td className="px-6 py-4">{plantID}</td>
 
                     <th

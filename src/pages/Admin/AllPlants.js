@@ -8,7 +8,14 @@ const AllPlants = () => {
   const { allPlants, updateState, setupdateState, deletePlantById } =
     usePlantContext();
   const [popUp, setpopUp] = useState({ state: "hidden", id: "" });
+  const [search, setsearch] = useState("");
 
+  const filteredData = allPlants.filter((plant) => {
+    if (!search) {
+      return plant;
+    }
+    return plant.plantName.toLowerCase().includes(search.toLowerCase());
+  });
   const PopUp = () => {
     return (
       <div
@@ -53,20 +60,34 @@ const AllPlants = () => {
       <PopUp />
 
       <div className="p-2 justify-between md:justify-start  flex gap-5 rounded-full border font-semibold ">
-        <Link href="/Admin/AllPlants" className="bg-blue-500 text-white  px-5 py-2 rounded-full">
+        <Link
+          href="/Admin/AllPlants"
+          className="bg-blue-500 text-white  px-5 py-2 rounded-full"
+        >
           All Plants
         </Link>
-        <Link
-          href="/Admin/AllExisPlants"
-          className="px-5 py-2 rounded-full"
-        >
+        <Link href="/Admin/AllExisPlants" className="px-5 py-2 rounded-full">
           All Existing Plant
         </Link>
       </div>
+
+      <input
+        type="text"
+        onChange={(e) => {
+          setsearch(e.target.value);
+        }}
+        className="border w-full my-5 outline-none px-5 py-2 rounded-full"
+        placeholder="Search Plant"
+        id=""
+      />
+
       <div className="border mt-5 overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 ">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50  ">
             <tr>
+              <th scope="col" className="text-center px-6 py-3">
+                Sr.No.
+              </th>
               <th scope="col" className="px-6 py-3">
                 Plant name
               </th>
@@ -82,12 +103,14 @@ const AllPlants = () => {
             </tr>
           </thead>
           <tbody>
-            {allPlants &&
-              allPlants.map((plant, index) => {
+            {filteredData &&
+              filteredData.map((plant, index) => {
                 const { plantName, category, writtenBy, _id } = plant;
                 return (
                   <>
                     <tr className="bg-white border-b " key={index}>
+                      <td className="px-6 text-center py-4">{index + 1}</td>
+
                       <th
                         scope="row"
                         className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
@@ -120,7 +143,7 @@ const AllPlants = () => {
               })}
           </tbody>
         </table>
-        {allPlants.length === 0 && (
+        {filteredData.length === 0 && (
           <div className="grid place-items-center  p-5">Not Found</div>
         )}{" "}
       </div>

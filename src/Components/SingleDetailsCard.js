@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const SingleCardDetails = (props) => {
+const SingleDetailsCard = (props) => {
   return (
     <div className="bg-white  rounded-lg  max-h-fit ">
       <div className="h-full flex flex-col justify-between border-2 border-gray-200 border-opacity-60  overflow-hidden">
@@ -12,20 +12,15 @@ const SingleCardDetails = (props) => {
         />
         <div className="p-6">
           <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1 ">
-            {props.category}
+          {props.category}
           </h2>
           <h1 className="title-font text-lg font  font-semibold text-gray-900 mb-3">
-            {props.plantName}
+          {props.plantName} <span className="text-xs">({props.pID})</span>
           </h1>
           <p className="leading-relaxed mb-3">{props.info}</p>
           <div className="flex items-center flex-wrap ">
             <Link
-              href={{
-                pathname: "/Plants/" + props.id,
-                query: {
-                  pname: props.plantName,
-                },
-              }}
+              href={`/Plant/${props.id}`}
               className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
             >
               View Plants
@@ -49,4 +44,4 @@ const SingleCardDetails = (props) => {
   );
 };
 
-export default SingleCardDetails;
+export default SingleDetailsCard;

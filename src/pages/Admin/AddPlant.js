@@ -45,6 +45,7 @@ const AddPlant = () => {
 
     if (res.msg) {
       setpDetails({});
+      setlongDesc("");
     }
     seteffect(Math.random());
   };
@@ -52,13 +53,13 @@ const AddPlant = () => {
   return (
     <Admin>
       <div className="p-2 justify-between md:justify-start  flex gap-5 rounded-full border font-semibold ">
-        <Link href="/Admin/AddPlant" className="bg-blue-500 text-white px-5 py-2 rounded-full">
+        <Link
+          href="/Admin/AddPlant"
+          className="bg-blue-500 text-white px-5 py-2 rounded-full"
+        >
           Add New Plant
         </Link>
-        <Link
-          href="/Admin/AddPlantAll"
-          className=" px-5 py-2 rounded-full"
-        >
+        <Link href="/Admin/AddPlantAll" className=" px-5 py-2 rounded-full">
           Add Existing Plant
         </Link>
       </div>
@@ -119,7 +120,7 @@ const AddPlant = () => {
             <select
               onChange={onChange}
               required={requiredState}
-              value={pDetails.category ? pDetails.category : ""}
+              value={pDetails.category ? pDetails.category : "Ayurvedic"}
               name="category"
               className="border w-full outline-none py-1 mt-2 px-5"
             >
@@ -127,7 +128,7 @@ const AddPlant = () => {
               <option value="Fruits">Fruits</option>
               <option value="Flowers">Flowers</option>
               <option value="Decorative">Decorative</option>
-              <option value="Climbers">Plants</option>
+              <option value="Shrub">Shrub</option>
               <option value="Trees">Trees</option>
             </select>
           </div>

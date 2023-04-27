@@ -8,8 +8,8 @@ const Admin = ({ children }) => {
 
   if (allUserDetail.role === process.env.NEXT_PUBLIC_ADMINKEY) {
     return (
-      <div className="px-5 container  mt-24 justify-between m-auto flex md:flex-row flex-col-reverse  gap-5 ">
-        <div className=" w-full md:w-1/5 p-5  bg-white">
+      <div className="p-5 container  mt-20 justify-between m-auto flex md:flex-row flex-col-reverse  gap-5 ">
+        <div className=" w-full h-fit md:w-1/5 p-5  bg-white">
           <div className="flex flex-col gap-5">
             <button className=" w-full text-left  font-semibold">
               <Link href="/Admin/AddPlant" className="  ">

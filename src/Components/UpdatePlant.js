@@ -145,7 +145,7 @@ const UpdatePlant = () => {
               <select
                 onChange={onChange}
                 required={requiredState}
-                value={pDetails.category ? pDetails.category : ""}
+                value={pDetails.category ? pDetails.category : "Ayurvedic"}
                 name="category"
                 className="border w-full outline-none py-1 mt-2 px-5"
               >
@@ -153,7 +153,7 @@ const UpdatePlant = () => {
                 <option value="Fruits">Fruits</option>
                 <option value="Flowers">Flowers</option>
                 <option value="Decorative">Decorative</option>
-                <option value="Climbers">Climbers</option>
+                <option value="Shrub">Shrub</option>
                 <option value="Trees">Trees</option>
               </select>
             </div>
