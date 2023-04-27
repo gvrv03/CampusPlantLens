@@ -51,7 +51,7 @@ const addPlant = async (req, res) => {
 
     const result = await AllPlants({
       addedBy,
-      plantID: plantName + "_" + count.length,
+      plantID: plantName + "_" + (count.length + 1),
       plantedBy,
       dateOfPlanted,
       plantimage,
