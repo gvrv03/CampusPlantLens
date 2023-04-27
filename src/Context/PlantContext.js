@@ -91,6 +91,20 @@ export function PlantContexProvider({ children }) {
     }
   };
 
+  const deleteExisPlantById = async (id) => {
+    const res = await fetch("/api/deleteExisPlantById", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id,
+      }),
+    });
+    const data = await res.json();
+    seteffect(Math.random());
+    return data;
+  };
   const deletePlantById = async (id) => {
     const res = await fetch("/api/deletePlantById", {
       method: "POST",
@@ -168,6 +182,7 @@ export function PlantContexProvider({ children }) {
     } else {
       openModal("fail", data.error);
     }
+    return data;
   };
 
   const UpdateExisPlant = async (
@@ -207,6 +222,7 @@ export function PlantContexProvider({ children }) {
     } else {
       openModal("fail", data.error);
     }
+    return data;
   };
 
   const addPlant = async (
@@ -242,6 +258,7 @@ export function PlantContexProvider({ children }) {
     } else {
       openModal("fail", data.error);
     }
+    return data;
   };
 
   const getPlant = async () => {
@@ -288,6 +305,7 @@ export function PlantContexProvider({ children }) {
         seteffect,
         UpdateExisPlant,
         addImagesByPlantName,
+        deleteExisPlantById,
         addExisPlant,
       }}
     >

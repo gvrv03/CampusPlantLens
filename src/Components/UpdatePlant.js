@@ -45,7 +45,7 @@ const UpdatePlant = () => {
       shortDesc,
       sciName,
     } = pDetails;
-    await updatePlant(
+    const res = await updatePlant(
       user.displayName,
       plantName,
       maintainedBy,
@@ -56,7 +56,10 @@ const UpdatePlant = () => {
       sciName,
       updateState.id
     );
+
+ 
   };
+
   return (
     <div
       className={`h-screen ${updateState.state} place-items-center fixed top-0 right-0 left-0`}

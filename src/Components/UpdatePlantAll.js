@@ -47,7 +47,7 @@ const UpdatePlantAll = () => {
       iframLoc,
       addressLine,
     } = pDetails;
-    await UpdateExisPlant(
+    const res = await UpdateExisPlant(
       user.displayName,
       plantName,
       plantedBy,
@@ -59,6 +59,7 @@ const UpdatePlantAll = () => {
       addressLine,
       updateState.id
     );
+
     seteffect(Math.random());
   };
 

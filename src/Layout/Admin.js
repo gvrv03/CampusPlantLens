@@ -8,7 +8,7 @@ const Admin = ({ children }) => {
 
   if (allUserDetail.role === process.env.NEXT_PUBLIC_ADMINKEY) {
     return (
-      <div className="px-5 container  justify-between mt-20 m-auto flex md:flex-row flex-col-reverse  gap-5 ">
+      <div className="px-5 container  mt-24 justify-between m-auto flex md:flex-row flex-col-reverse  gap-5 ">
         <div className=" w-full md:w-1/5 p-5  bg-white">
           <div className="flex flex-col gap-5">
             <button className=" w-full text-left  font-semibold">
@@ -42,7 +42,7 @@ const Admin = ({ children }) => {
             </button>
           </div>
         </div>
-        <div className="  w-full md:w-4/5 p-5  bg-white">
+        <div className="  w-full h-screen overflow-y-scroll md:w-4/5 p-5  bg-white">
           <AdminStat />
           <div className="mt-10">{children}</div>
         </div>

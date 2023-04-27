@@ -33,7 +33,7 @@ const AddPlantAll = () => {
       iframLoc,
       addressLine,
     } = pDetails;
-    await addExisPlant(
+    const res = await addExisPlant(
       user.displayName,
       plantName,
       plantedBy,
@@ -44,7 +44,9 @@ const AddPlantAll = () => {
       iframLoc,
       addressLine
     );
-
+    if (res.msg) {
+      setpDetails({});
+    }
     seteffect(Math.random());
   };
 

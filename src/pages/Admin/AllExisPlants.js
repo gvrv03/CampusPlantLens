@@ -10,8 +10,8 @@ const AllExisPlants = () => {
     allPlants,
     updateState,
     setupdateState,
-    deletePlantById,
     allExisPlants,
+    deleteExisPlantById,
   } = usePlantContext();
   const [popUp, setpopUp] = useState({ state: "hidden", id: "" });
   const PopUp = () => {
@@ -40,7 +40,7 @@ const AllExisPlants = () => {
             </button>
             <button
               onClick={async () => {
-                await deletePlantById(popUp.id);
+                await deleteExisPlantById(popUp.id);
                 setpopUp({ state: "hidden", id: "" });
               }}
               type="button"
@@ -95,13 +95,8 @@ const AllExisPlants = () => {
           <tbody>
             {allExisPlants &&
               allExisPlants.map((plant, index) => {
-                const {
-                  PlantDetails,
-                  plantedBy,
-                  addedBy,
-                  plantID,
-                  _id,
-                } = plant;
+                const { PlantDetails, plantedBy, addedBy, plantID, _id } =
+                  plant;
                 const { plantName, category } = PlantDetails;
                 return (
                   <tr className="bg-white border-b " key={index}>
@@ -139,7 +134,7 @@ const AllExisPlants = () => {
               })}
           </tbody>
         </table>
-        {allPlants.length === 0 && (
+        {allExisPlants.length === 0 && (
           <div className="grid place-items-center  p-5">Not Found</div>
         )}{" "}
       </div>

@@ -43,9 +43,9 @@ const AddPlant = () => {
       sciName
     );
 
-    // if (res.msg) {
-    //   setpDetails({});
-    // }
+    if (res.msg) {
+      setpDetails({});
+    }
     seteffect(Math.random());
   };
 
