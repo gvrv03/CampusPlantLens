@@ -5,6 +5,7 @@ import "suneditor/dist/css/suneditor.min.css"; // Import Sun Editor's CSS File
 import { Content } from "next/font/google";
 import { usePlantContext } from "campusplantlens/Context/PlantContext";
 import { useUserAuth } from "campusplantlens/Context/UserAuthContext";
+import Link from "next/link";
 
 const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
@@ -49,7 +50,17 @@ const AddPlantAll = () => {
 
   return (
     <Admin>
-      <h1 className="font-bold ">Add Plants </h1>
+      <div className="p-2 justify-between md:justify-start  flex gap-5 rounded-full border font-semibold ">
+        <Link href="/Admin/AddPlant" className=" px-5 py-2 rounded-full">
+          Add New Plant
+        </Link>
+        <Link
+          href="/Admin/AddPlantAll"
+          className="bg-blue-500 text-white px-5 py-2 rounded-full"
+        >
+          Add Existing Plant
+        </Link>
+      </div>
 
       <form onSubmit={handleSubmit} className="mt-10">
         <h2 className="font-semibold my-5 text-lg">Plant Details</h2>

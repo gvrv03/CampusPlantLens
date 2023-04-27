@@ -16,10 +16,9 @@ const UpdatePlant = () => {
     usePlantContext();
   const [pDetails, setpDetails] = useState({});
   const [longDesc, setlongDesc] = useState("");
-  const [desc, setdesc] = useState("");
   const { user } = useUserAuth();
   const router = useRouter();
-  const [requiredState, setRequired] = useState(false);
+  const [requiredState, setRequired] = useState(true);
   useEffect(() => {
     const getPlant = async () => {
       const res = await getPlantById(updateState.id);
@@ -29,7 +28,6 @@ const UpdatePlant = () => {
     };
     getPlant();
   }, []);
-  console.log(longDesc);
 
   const onChange = (e) => {
     setpDetails({
@@ -69,8 +67,7 @@ const UpdatePlant = () => {
           setupdateState({ state: "hidden", id: "" });
         }}
       />
-
-      <div className="w-3/4 p-5 h-4/5  absolute  bg-white">
+      <div className="w-full h-full md:w-3/4 md:mt-0 mt-28  p-5 md:h-4/5  absolute  bg-white">
         <h1 className="  bg-white flex justify-between  p-2 border mb-5 font-semibold   text-lg text-center">
           <div className="flex gap-5 justify-center items-center">
             <i className="bi bi-pen-fill " />

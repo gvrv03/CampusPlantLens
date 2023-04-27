@@ -7,6 +7,7 @@ import { useState } from "react";
 const plantContext = createContext();
 export function PlantContexProvider({ children }) {
   const [allPlants, setallPlants] = useState([]);
+  const [allExisPlants, setallExisPlants] = useState([]);
   const [effect, seteffect] = useState("fhgdsgfsdha");
   const [updateState, setupdateState] = useState({
     state: "hidden",
@@ -105,8 +106,21 @@ export function PlantContexProvider({ children }) {
     return data;
   };
 
+  const getExisPlantById = async (id) => {
+    const res = await fetch("/api/getExisPlantByID", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id,
+      }),
+    });
+    const data = await res.json();
+    return data;
+  };
   const getPlantById = async (id) => {
-    const res = await fetch("/api/getProductByID", {
+    const res = await fetch("/api/getPlantByID", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -145,6 +159,45 @@ export function PlantContexProvider({ children }) {
         latitude,
         iframLoc,
         addressLine,
+      }),
+    });
+    const data = await res.json();
+    seteffect(Math.random());
+    if (data.msg) {
+      openModal("success", data.msg);
+    } else {
+      openModal("fail", data.error);
+    }
+  };
+
+  const UpdateExisPlant = async (
+    addedBy,
+    plantName,
+    plantedBy,
+    dateOfPlanted,
+    plantimage,
+    longitude,
+    latitude,
+    iframLoc,
+    addressLine,
+    id
+  ) => {
+    const res = await fetch("/api/updateExisPlant", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        addedBy,
+        plantName,
+        plantedBy,
+        dateOfPlanted,
+        plantimage,
+        longitude,
+        latitude,
+        iframLoc,
+        addressLine,
+        id,
       }),
     });
     const data = await res.json();
@@ -202,7 +255,19 @@ export function PlantContexProvider({ children }) {
     setallPlants(data);
   };
 
+  const getExisPlant = async () => {
+    const res = await fetch("/api/addExisPlant", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    setallExisPlants(data);
+  };
+
   useEffect(() => {
+    getExisPlant();
     getPlant();
   }, [effect]);
 
@@ -213,12 +278,15 @@ export function PlantContexProvider({ children }) {
         closeModal,
         openModal,
         allPlants,
+        allExisPlants,
         getPlantById,
         updateState,
+        getExisPlantById,
         deletePlantById,
         updatePlant,
         setupdateState,
         seteffect,
+        UpdateExisPlant,
         addImagesByPlantName,
         addExisPlant,
       }}
