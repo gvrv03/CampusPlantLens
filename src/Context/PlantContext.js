@@ -76,7 +76,7 @@ export function PlantContexProvider({ children }) {
       }),
     });
     const data = await res.json();
-    console.log(data);
+    seteffect(Math.random());
     if (data.msg) {
       openModal("success", data.msg);
     } else {

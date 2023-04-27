@@ -6,7 +6,7 @@ import Link from "next/link";
 const Plantcategory = () => {
   return (
     <PlantsLayout>
-      <div className=" ">
+      <div className=" h-full">
         <div className="bg-white mb-5 p-5">
           <Link href="/" className="cursor-pointer">
             Home
@@ -17,7 +17,7 @@ const Plantcategory = () => {
           </Link>
         </div>
 
-        <div className="container   mt-5 mx-auto">
+        <div className="container h-full   mt-5 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <SingleCard
               category="Ayurvedic"

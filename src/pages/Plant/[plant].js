@@ -44,7 +44,7 @@ const PlantDetail = ({ plantDetails }) => {
             setnavigateState(1);
           }}
           type="button"
-          className={`text-xs sm:text-sm ${
+          className={`text-xs sm:text-lg ${
             navigateState === 1 && "bg-blue-500 text-white"
           } hover:bg-blue-500 px-5 py-2 hover:text-white rounded-full`}
         >
@@ -55,7 +55,7 @@ const PlantDetail = ({ plantDetails }) => {
             setnavigateState(2);
           }}
           type="button"
-          className={`text-xs sm:text-sm ${
+          className={`text-xs sm:text-lg ${
             navigateState === 2 && "bg-blue-500 text-white"
           } hover:bg-blue-500 px-5 py-2 hover:text-white rounded-full`}
         >
@@ -86,24 +86,25 @@ const PlantDetail = ({ plantDetails }) => {
             <div className="flex justify-between items-center">
               <div className=" flex justify-start flex-col gap-2 font-bold md:tracking-tight ">
                 <h1 className="text-4xl">{plantName}</h1>
-                <span className="sm:text-sm text-xs font-medium ">
+                <span className="sm:text-lg text-xs font-medium ">
                   {" "}
                   Category : {category}
                 </span>
-                <span className="sm:text-sm text-xs font-medium">
+                <span className="sm:text-lg text-xs font-medium">
                   No of Plants : {noOfPlants}
                 </span>
                 <div>
-                  <div className="sm:text-sm text-xs font-medium">
+                  <div className="sm:text-lg text-xs font-medium">
                     Planted by : <span className="font-bold">{plantedBy}</span>{" "}
                     on •{" "}
                     {plantedDate.getDate() +
                       "/" +
-                      plantedDate.getMonth() +
+                      (plantedDate.getMonth() + 1) +
                       "/" +
                       plantedDate.getFullYear()}
                   </div>
                 </div>
+                <div className="sm:text-lg text-xs font-light">{shortDesc}</div>
               </div>
               {newLink && (
                 <QRCode
@@ -123,23 +124,25 @@ const PlantDetail = ({ plantDetails }) => {
                   alt=""
                   className="w-4 h-4 border rounded-full "
                 />
-                <p className="sm:text-sm text-xs">
-                  Last Updated :{writtenBy} •{" "}
+                <p className="sm:text-lg text-xs">
+                  Last Updated : {writtenBy} • {" "}
                   {date.getDate() +
                     "/" +
-                    date.getMonth() +
+                    (date.getMonth() + 1) +
                     "/" +
                     date.getFullYear()}
                 </p>
               </div>
-              <p className="flex-shrink-0 mt-3 text-sm md:mt-0">
-                4 min read 
-              </p>
+              <p className="flex-shrink-0 mt-3 text-sm md:mt-0">4 min read</p>
             </div>
           </div>
           <Navigator />
           <div className="">
-            {navigateState === 1 ? <SinglePlantDetail /> : <Images plantImages={plantImages}/>}
+            {navigateState === 1 ? (
+              <SinglePlantDetail />
+            ) : (
+              <Images plantImages={plantImages} />
+            )}
           </div>
         </article>
       </div>

@@ -171,7 +171,7 @@ const Navbar = () => {
 
               <li>
                 <Link
-                  href="/"
+                  href="/ContactUs"
                   className={` ${
                     router.pathname == "/ContactUs"
                       ? "text-blue-700"
@@ -203,7 +203,7 @@ const Navbar = () => {
       </nav>
 
       <section
-        className={`left-0 top-0  block fixed mt-14  w-full h-screen ${navState}`}
+        className={`left-0 z-50 top-0  block fixed mt-14  w-full h-screen ${navState}`}
       >
         <div
           className="bgLight absolute w-full cursor-pointer h-full"
@@ -234,7 +234,7 @@ const Navbar = () => {
             onClick={() => {
               setnavState("hidden");
             }}
-            href="/"
+            href="/ContactUs"
             className="font-semibold hover:text-blue-500"
           >
             Contact Us

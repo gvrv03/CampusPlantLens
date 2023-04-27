@@ -165,7 +165,7 @@ const AddPlant = () => {
               className="border w-full outline-none py-1 mt-2 px-5"
             >
               <option value="Ayurvedic">Ayurvedic</option>
-              <option value="Fruit">Fruits</option>
+              <option value="Fruits">Fruits</option>
               <option value="Flower">Flowers</option>
               <option value="Decorative">Decorative</option>
               <option value="Climbers">Plants</option>

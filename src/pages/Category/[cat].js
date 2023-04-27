@@ -15,7 +15,7 @@ const Category = () => {
   console.log(category);
   return (
     <PlantsLayout>
-      <div className="relative h-screen">
+      <div className=" ">
         <div className="bg-white p-5">
           <Link href="/" className="cursor-pointer">
             Home

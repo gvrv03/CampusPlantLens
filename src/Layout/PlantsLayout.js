@@ -4,10 +4,14 @@ import React from "react";
 
 const PlantsLayout = ({ children }) => {
   return (
-    <section className="h-screen mt-20   ">
-      <div className=" container gap-5 flex-col md:flex-row flex    m-auto">
-        <div className="w-full  overflow-y-scroll h-screen  sm:w-9/12">{children}</div>
-        <div className="w-full flex flex-col gap-2 p-5 md:w-3/12 bg-white ">
+    <section className=" pt-20  h-full ">
+      <div className=" container gap-5  flex-col md:flex-row flex    m-auto">
+        <div className="w-full  overflow-y-scroll   sm:w-9/12">
+          {children}
+        </div>
+        <div className="w-full h-fit flex flex-col gap-2 p-5 md:w-3/12 bg-white ">
+          <h1 className="font-bold mb-2 border py-2 text-center">Category</h1>
+
           <Category
             category="Ayurvedic"
             image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-O8zvpqr-Cx3T8MkxR7YDvyilQdggwudP6yYrFRdZU3940Ir2wA1sLTIktV2SNiJF__U&usqp=CAU"
@@ -49,8 +53,8 @@ const Category = (props) => {
     <Link
       href={`/Category/${props.category}`}
       className={` ${
-        router.asPath === "/Category/" + props.category
-      && "bg-green-400" } flex gap-5 border p-2 items-center`}
+        router.asPath === "/Category/" + props.category && "bg-green-400"
+      } flex gap-5 border p-2 items-center`}
     >
       <img className="w-20 h-10" src={props.image} alt="" />
       <h2 className="font-semibold">{props.category}</h2>

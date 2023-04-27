@@ -20,7 +20,6 @@ const SingleCardDetails = (props) => {
           <p className="leading-relaxed mb-3">{props.info}</p>
           <div className="flex items-center flex-wrap ">
             <Link
-              target="_blank"
               href={`/Plant/${props.id}`}
               className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
             >

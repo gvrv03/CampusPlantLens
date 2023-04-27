@@ -52,7 +52,7 @@ const AllPlants = () => {
       <PopUp />
 
       <h5 className="font-semibold text-lg mb-5">All Plants</h5>
-      <div className="border relative overflow-x-auto">
+      <div className="border  overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 ">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50  ">
             <tr>
