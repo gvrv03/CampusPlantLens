@@ -28,7 +28,10 @@ const AddImages = () => {
   }, 2000);
   const uploadFile = async () => {
     setuploadLoad(true);
-    if (imageUpload == null) return setimgErr("Please Select Image");
+    if (imageUpload == null) {
+      setuploadLoad(false);
+      return setimgErr("Please Select Image");
+    }
 
     const imageRef = ref(storage, `${plantName}/${imageUpload.name + v4()}`);
     await uploadBytes(imageRef, imageUpload).then((snapshot) => {
@@ -60,9 +63,14 @@ const AddImages = () => {
   const handleAddImages = async (e) => {
     e.preventDefault();
     setloading(true);
+    if (!upload) {
+      setloading(false);
+      return setimgErr("Upload Image First");
+    }
+
     await addImagesByPlantName(plantName, imageUrls);
-    setloading(false);
     setupload(false);
+    setloading(false);
   };
   return (
     <Admin>
@@ -74,6 +82,7 @@ const AddImages = () => {
             <h4 className="text-xs font-semibold">Select Plant</h4>
             <select
               onChange={onChange}
+              required={true}
               value={pDetails.plantName ? pDetails.plantName : ""}
               name="plantName"
               className="border w-full outline-none py-1 mt-2 px-5"
@@ -97,6 +106,7 @@ const AddImages = () => {
             <div className="flex mt-2 items-center">
               <input
                 type="file"
+                required={true}
                 onChange={(event) => {
                   setImageUpload(event.target.files[0]);
                 }}
@@ -116,7 +126,9 @@ const AddImages = () => {
                   />
                 )}
                 {upload && <i class="bi bi-arrow-up-right-circle-fill"></i>}
-                <span>Upload Image</span>{" "}
+                <span className="px-5 text-sm ">
+                  {upload ? "Uploaded" : "Upload"}
+                </span>{" "}
               </button>
             </div>
             {imgErr && (

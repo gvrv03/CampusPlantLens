@@ -6,14 +6,16 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 const AllExisPlants = () => {
-  const {
-    allPlants,
-    updateState,
-    setupdateState,
-    allExisPlants,
-    deleteExisPlantById,
-  } = usePlantContext();
+  const { updateState, setupdateState, allExisPlants, deleteExisPlantById } =
+    usePlantContext();
   const [popUp, setpopUp] = useState({ state: "hidden", id: "" });
+  const [search, setsearch] = useState("");
+  const filteredData = allExisPlants.filter((plant) => {
+    if (!search) {
+      return plant;
+    }
+    return plant.plantID.toLowerCase().includes(search.toLowerCase());
+  });
   const PopUp = () => {
     return (
       <div
@@ -69,9 +71,11 @@ const AllExisPlants = () => {
       </div>
       <input
         type="text"
-        name=""
+        onChange={(e) => {
+          setsearch(e.target.value);
+        }}
         className="border w-full my-5 outline-none px-5 py-2 rounded-full"
-        placeholder="Search Plant"
+        placeholder="Search Plant by ID"
         id=""
       />
 
@@ -104,8 +108,8 @@ const AllExisPlants = () => {
             </tr>
           </thead>
           <tbody>
-            {allExisPlants &&
-              allExisPlants.map((plant, index) => {
+            {filteredData &&
+              filteredData.map((plant, index) => {
                 const { PlantDetails, plantedBy, addedBy, plantID, _id } =
                   plant;
                 const { plantName, category } = PlantDetails;
@@ -146,7 +150,7 @@ const AllExisPlants = () => {
               })}
           </tbody>
         </table>
-        {allExisPlants.length === 0 && (
+        {filteredData.length === 0 && (
           <div className="grid place-items-center  p-5">Not Found</div>
         )}{" "}
       </div>
