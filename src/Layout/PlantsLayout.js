@@ -33,7 +33,7 @@ const PlantsLayout = ({ children }) => {
           />
 
           <Category
-            category="Plants"
+            category="Shrub"
             image="https://previews.123rf.com/images/leksuperphoto/leksuperphoto1609/leksuperphoto160900034/65114098-wooden-and-climbing-plants-of-wall-contrast-background.jpg"
           />
 

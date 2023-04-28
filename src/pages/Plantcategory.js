@@ -40,7 +40,7 @@ const Plantcategory = () => {
               image="https://images.jdmagicbox.com/quickquotes/images_main/artificial-plant-2216557070-zv7iztnz.jpg"
             />
             <SingleCard
-              category="Plants"
+              category="Shrub"
               info="Some planted or auto-grown climbers in the campus."
               image="https://previews.123rf.com/images/leksuperphoto/leksuperphoto1609/leksuperphoto160900034/65114098-wooden-and-climbing-plants-of-wall-contrast-background.jpg"
             />

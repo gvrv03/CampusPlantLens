@@ -1,7 +1,12 @@
 import React from "react";
 
-const SinglePlantDetail = () => {
-  return <div>I am Detail</div>;
+const SinglePlantDetail = ({ longDesc }) => {
+  console.log(longDesc);
+  return (
+    <div className="">
+      <div dangerouslySetInnerHTML={{ __html: longDesc }} />
+    </div>
+  );
 };
 
 export default SinglePlantDetail;
