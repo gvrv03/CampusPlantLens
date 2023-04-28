@@ -14,7 +14,6 @@ const PlantDetail = ({ plantDetails, plantSingleDetails }) => {
   const router = useRouter();
   let newLink = baseUrl + "Plant/" + router.query.plant;
   const [navigateState, setnavigateState] = useState(1);
-  console.log(plantDetails);
   const {
     addedBy,
     plantID,
@@ -144,7 +143,7 @@ const PlantDetail = ({ plantDetails, plantSingleDetails }) => {
           <Navigator />
           <div className="">
             {navigateState === 1 && <SinglePlantDetail longDesc={longDesc} />}
-            {navigateState === 2 && <Images longDesc={plantImages} />}
+            {navigateState === 2 && <Images plantImages={plantImages} />}
             {navigateState === 3 && (
               <PlantLocation
                 longitude={longitude}

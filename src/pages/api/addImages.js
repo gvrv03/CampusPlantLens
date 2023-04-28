@@ -1,5 +1,5 @@
 import initDB from "../../Helpers/initDB";
-import Plant from "campusplantlens/Modal/Plant";
+import AllPlants from "campusplantlens/Modal/AllPlants";
 
 initDB();
 
@@ -10,18 +10,18 @@ export default async (req, res) => {
       return res.status(422).json({ error: "Please fill all the fields" });
     }
 
-    const plant = await Plant.findOne({
-      plantName,
+    const plant = await AllPlants.findOne({
+      plantID: plantName,
     });
 
     if (!plant) {
       return res.status(404).json({ error: "This Plant not Exists" });
     }
 
-    const filter = { plantName: plantName };
+    const filter = { plantID: plantName };
     const update = { $push: { plantImages: imageUrl } };
 
-    const addImages = await Plant.findOneAndUpdate(filter, update);
+    const addImages = await AllPlants.findOneAndUpdate(filter, update);
     res.status(201).json({ msg: "Image Added", addImages });
   } catch (err) {
     res.status(500).json({ error: "Internal Server Error" });
