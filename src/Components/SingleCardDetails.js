@@ -18,7 +18,7 @@ const SingleCardDetails = (props) => {
             {props.plantName}
           </h1>
           <p className="leading-relaxed mb-3">{props.info}</p>
-          <div className="flex items-center flex-wrap ">
+          <div className="flex items-center justify-between flex-wrap ">
             <Link
               href={{
                 pathname: "/Plants/" + props.id,
@@ -42,6 +42,10 @@ const SingleCardDetails = (props) => {
                 <path d="M12 5l7 7-7 7"></path>
               </svg>
             </Link>
+            {/* <div className="flex gap-2">
+              <i className="bi bi-eye-fill" />
+              {props.count}
+            </div> */}
           </div>
         </div>
       </div>

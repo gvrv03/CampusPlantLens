@@ -171,6 +171,20 @@ const Navbar = () => {
 
               <li>
                 <Link
+                  href="/Gallery"
+                  className={` ${
+                    router.pathname == "/Gallery"
+                      ? "text-blue-700"
+                      : "text-gray-700"
+                  } block py-2 pl-3 pr-4  rounded md:p-0 `}
+                  aria-current="page"
+                >
+                  Gallery
+                </Link>
+              </li>
+
+              <li>
+                <Link
                   href="/ContactUs"
                   className={` ${
                     router.pathname == "/ContactUs"
@@ -229,6 +243,15 @@ const Navbar = () => {
             className="font-semibold hover:text-blue-500"
           >
             Category
+          </Link>
+          <Link
+            onClick={() => {
+              setnavState("hidden");
+            }}
+            href="/Gallery"
+            className="font-semibold hover:text-blue-500"
+          >
+            Gallery
           </Link>
           <Link
             onClick={() => {

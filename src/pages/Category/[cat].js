@@ -8,12 +8,10 @@ import React from "react";
 
 const Category = () => {
   const router = useRouter();
-  const { allPlants } = usePlantContext();
+  const { allPlants, getAllExisPlantById } = usePlantContext();
   const category = allPlants.filter((plant) => {
     return router.query.cat === plant.category;
   });
-  console.log(category);
-  console.log(category);
   return (
     <PlantsLayout>
       <div className=" ">
@@ -37,10 +35,12 @@ const Category = () => {
           {category &&
             category.map((item, index) => {
               const { category, shortDesc, plantimage, plantName, _id } = item;
+              
               return (
                 <SingleCardDetails
                   category={category}
                   key={index}
+                  count="878"
                   id={_id}
                   plantName={plantName}
                   info={shortDesc}

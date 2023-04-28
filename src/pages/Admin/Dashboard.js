@@ -12,17 +12,18 @@ const Dashboard = () => {
           <PieChart
             // animate=
             data={[
-              { title: "Plant", value: allPlants.length, color: "#a0ff08" },
+              { title: "Plant", value: allPlants.length, color: "#abedc6" },
               {
                 title: "Total Plant",
                 value: allExisPlants.length,
-                color: "#0040ff",
+                color: "#97e6b8",
               },
-              { title: "Category", value: 6, color: "#c20000" },
+              { title: "Category", value: 6, color: "#6bc792" },
             ]}
-            label={({ dataEntry }) => dataEntry.title}
-            // className="text-xs"
-            labelStyle={{ fontSize: "5px", color: "white " }}
+            label={({ dataEntry }) =>
+              dataEntry.title + " " + "(" + dataEntry.value + ")"
+            }
+            labelStyle={{ fontSize: "5px", color: "white", fontWeight: 500 }}
           />
         </div>
       </div>

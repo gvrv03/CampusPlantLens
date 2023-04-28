@@ -133,6 +133,21 @@ export function PlantContexProvider({ children }) {
     const data = await res.json();
     return data;
   };
+
+  const getAllExisPlantById = async (id) => {
+    const res = await fetch("/api/getAllExisPlantByID", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id,
+      }),
+    });
+    const data = await res.json();
+    return data;
+  };
+
   const getPlantById = async (id) => {
     const res = await fetch("/api/getPlantByID", {
       method: "POST",
@@ -306,6 +321,7 @@ export function PlantContexProvider({ children }) {
         UpdateExisPlant,
         addImagesByPlantName,
         deleteExisPlantById,
+        getAllExisPlantById,
         addExisPlant,
       }}
     >
