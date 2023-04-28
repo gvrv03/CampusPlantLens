@@ -5,8 +5,13 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 const AllPlants = () => {
-  const { allPlants, updateState, setupdateState, deletePlantById } =
-    usePlantContext();
+  const {
+    allPlants,
+    allExisPlants,
+    updateState,
+    setupdateState,
+    deletePlantById,
+  } = usePlantContext();
   const [popUp, setpopUp] = useState({ state: "hidden", id: "" });
   const [search, setsearch] = useState("");
 
@@ -98,6 +103,9 @@ const AllPlants = () => {
                 Plant Added by
               </th>
               <th scope="col" className="px-6 py-3">
+                Toatl Plants
+              </th>
+              <th scope="col" className="px-6 py-3">
                 Edit/Delete
               </th>
             </tr>
@@ -106,6 +114,9 @@ const AllPlants = () => {
             {filteredData &&
               filteredData.map((plant, index) => {
                 const { plantName, category, writtenBy, _id } = plant;
+                // allExisPlants
+
+                
                 return (
                   <>
                     <tr className="bg-white border-b " key={index}>

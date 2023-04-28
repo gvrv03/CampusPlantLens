@@ -4,7 +4,7 @@ import React from "react";
 
 const PlantsLayout = ({ children }) => {
   return (
-    <section className=" pt-20  h-full ">
+    <section className=" pt-20  h-full mb-10">
       <div className=" container gap-5 px-5 mt-5 flex-col md:flex-row flex    m-auto">
         <div className="w-full  overflow-y-scroll   sm:w-9/12">
           {children}

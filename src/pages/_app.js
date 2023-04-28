@@ -1,3 +1,4 @@
+import Footer from "campusplantlens/Components/Footer";
 import Navbar from "campusplantlens/Components/Navbar";
 import { PlantContexProvider } from "campusplantlens/Context/PlantContext";
 import { UserAuthContexProvider } from "campusplantlens/Context/UserAuthContext";
@@ -10,6 +11,7 @@ export default function App({ Component, pageProps }) {
         <PlantContexProvider>
           <Navbar />
           <Component {...pageProps} />
+          <Footer />
         </PlantContexProvider>
       </UserAuthContexProvider>
     </>
