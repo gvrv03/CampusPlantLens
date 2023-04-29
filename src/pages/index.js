@@ -3,7 +3,7 @@ import "react-slideshow-image/dist/styles.css";
 import SectionTitle from "campusplantlens/Components/sectionTitle";
 import Video from "campusplantlens/Components/video";
 import { Slide } from "react-slideshow-image";
-
+import { campsPlant } from "campusplantlens/Components/data";
 export default function Home() {
   const spanStyle = {
     padding: "20px",
@@ -35,30 +35,16 @@ export default function Home() {
       },
     },
   ];
-  const slideImages = [
-    {
-      url: "https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-      caption: "Slide 1",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80",
-      caption: "Slide 2",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-      caption: "Slide 3",
-    },
-  ];
+
   return (
     <div className="py-16 bg-white ">
       <Hero />
       <SectionTitle
         pretitle="Glance of Greenery"
-        title="Learn how to fullfil your needs"
+        title="Glimpse of Greenery in our Campus"
       >
-        This section is to highlight a promo or demo video of your product.
-        Analysts says a landing page with video has 3% more conversion rate. So,
-        don&apos;t forget to add one. Just like this.
+        This section is to highlight the plantation and the green event
+        conducted bu Mr. M.K. Tatte, Government Polytechnic, Arvi
       </SectionTitle>
       <div className="container flex justify-center px-5 m-auto">
         <div className=" w-full">
@@ -85,76 +71,28 @@ export default function Home() {
               },
             ]}
           >
-            <div
-              style={{
-                textAlign: "center",
-                background: "red",
-                padding: "200px 0",
-                fontSize: "30px",
-              }}
-            >
-              First Slide
-            </div>
-            <div
-              style={{
-                textAlign: "center",
-                background: "orange",
-                padding: "200px 0",
-                fontSize: "30px",
-              }}
-            >
-              Second Slide
-            </div>
-            <div
-              style={{
-                textAlign: "center",
-                background: "yellow",
-                padding: "200px 0",
-                fontSize: "30px",
-              }}
-            >
-              Third Slide
-            </div>
-            <div
-              style={{
-                textAlign: "center",
-                background: "green",
-                padding: "200px 0",
-                fontSize: "30px",
-              }}
-            >
-              Fourth Slide
-            </div>
-            <div
-              style={{
-                textAlign: "center",
-                background: "blue",
-                padding: "200px 0",
-                fontSize: "30px",
-              }}
-            >
-              Sixth Slide
-            </div>
-            <div
-              style={{
-                textAlign: "center",
-                background: "indigo",
-                padding: "200px 0",
-                fontSize: "30px",
-              }}
-            >
-              Seventh Slide
-            </div>
-            <div
-              style={{
-                textAlign: "center",
-                background: "violet",
-                padding: "200px 0",
-                fontSize: "30px",
-              }}
-            >
-              Eight Slide
-            </div>
+            {campsPlant.map((url, index) => {
+              console.log(url);
+              return (
+                <div
+                  className="flex "
+                  key={index}
+                  style={{
+                    textAlign: "center",
+                    padding: "50px 0",
+                    fontSize: "30px",
+                  }}
+                >
+                  <img
+                    className=" p-5"
+                    style={{ height: "400px" }}
+                    src={url.URl}
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+              );
+            })}
           </Slide>
         </div>
       </div>

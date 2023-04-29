@@ -1,60 +1,65 @@
-import {
-  FaceSmileIcon,
-  ChartBarSquareIcon,
-  CursorArrowRaysIcon,
-  DevicePhoneMobileIcon,
-  AdjustmentsHorizontalIcon,
-  SunIcon,
-} from "@heroicons/react/24/solid";
+export const campsPlant = [
+  {
+    URl: "/Campus/College (1).jpg",
+  },
+  {
+    URl: "/Campus/College (5).jpg",
+  },
+  {
+    URl: "/Campus/College (6).jpg",
+  },
+  {
+    URl: "/Campus/College (8).jpg",
+  },
+  {
+    URl: "/Campus/College (11).jpg",
+  },
+  {
+    URl: "/Campus/College (12).jpg",
+  },
+  {
+    URl: "/Campus/College (2).jpg",
+  },
+  {
+    URl: "/Campus/College (4).jpg",
+  },
+];
 
-// import benefitOneImg from "/img/benefit-one.png";
-import benefitOneImg from "../../public/img/benefit-one.png";
-import benefitTwoImg from "../../public/img/benefit-two.png";
-
-const benefitOne = {
-  title: "Features of Campus Plant Lens",
-  desc: "You can use this space to highlight your first benefit or a feature of your product. It can also contain an image or Illustration like in the example along with some bullet points.",
-  image: benefitOneImg,
-  bullets: [
-    {
-      title: "Understand your customers",
-      desc: "Then explain the first point breifly in one or two lines.",
-      icon: <FaceSmileIcon />,
-    },
-    {
-      title: "Improve acquisition",
-      desc: "Here you can add the next benefit point.",
-      icon: <ChartBarSquareIcon />,
-    },
-    {
-      title: "Drive customer retention",
-      desc: "This will be your last bullet point in this section.",
-      icon: <CursorArrowRaysIcon />,
-    },
-  ],
-};
-
-const benefitTwo = {
-  title: "Why Campus Plant Lens ?",
-  desc: "You can use this same layout with a flip image to highlight your rest of the benefits of your product. It can also contain an image or Illustration as above section along with some bullet points.",
-  image: benefitTwoImg,
-  bullets: [
-    {
-      title: "Mobile Responsive Template",
-      desc: "Nextly is designed as a mobile first responsive template.",
-      icon: <DevicePhoneMobileIcon />,
-    },
-    {
-      title: "Powered by Next.js & TailwindCSS",
-      desc: "This template is powered by latest technologies and tools.",
-      icon: <AdjustmentsHorizontalIcon />,
-    },
-    {
-      title: "Dark & Light Mode",
-      desc: "Nextly comes with a zero-config light & dark mode. ",
-      icon: <SunIcon />,
-    },
-  ],
-};
-
-export { benefitOne, benefitTwo };
+export const AllCampsPlant = [
+  {
+    URl: "/Campus/College (1).jpg",
+  },
+  {
+    URl: "/Campus/College (2).jpg",
+  },
+  {
+    URl: "/Campus/College (3).jpg",
+  },
+  {
+    URl: "/Campus/College (4).jpg",
+  },
+  {
+    URl: "/Campus/College (5).jpg",
+  },
+  {
+    URl: "/Campus/College (6).jpg",
+  },
+  {
+    URl: "/Campus/College (7).jpg",
+  },
+  {
+    URl: "/Campus/College (8).jpg",
+  },
+  {
+    URl: "/Campus/College (9).jpg",
+  },
+  {
+    URl: "/Campus/College (10).jpg",
+  },
+  {
+    URl: "/Campus/College (11).jpg",
+  },
+  {
+    URl: "/Campus/College (12).jpg",
+  },
+];

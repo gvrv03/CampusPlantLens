@@ -11,10 +11,14 @@ const Hero = () => {
             <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight ">
               Campus Plant Lens
             </h1>
+            <p className="py-5 text-base leading-normal text-blue-600 font-semibold lg:text-xl xl:text-2xl ">
+              Welecome to the campus of Greenery!
+            </p>
+
             <p className="py-5 text-base leading-normal text-gray-500 lg:text-xl xl:text-2xl ">
-              Nextly is a free landing page & marketing website template for
-              startups and indie projects. Its built with Next.js & TailwindCSS.
-              And its completely open-source.
+              Campus Plant Lens is here to serve as a platform for sharing
+              valuable information on plants and their properties through QR
+              scanning
             </p>
 
             <div className="flex mt-10 flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
@@ -51,7 +55,7 @@ const Hero = () => {
             </div>
             <div className="pt-2 text-gray-400 border rounded-sm px-2 md:px-5 p-2 flex gap-5">
               <img src="/male.svg" className="w-10" alt="" />
-              <div>
+              <div className="text-xs md:text-base">
                 <h4 className="text-black font-semibold text-sm md:text-lg">
                   Tanmay Zalke
                 </h4>
@@ -61,7 +65,7 @@ const Hero = () => {
 
             <div className="pt-2 text-gray-400 border rounded-sm px-2 md:px-5 p-2 flex gap-5">
               <img src="/female.svg" className="w-10" alt="" />
-              <div>
+              <div className="text-xs md:text-base">
                 <h4 className="text-black font-semibold text-sm md:text-lg">
                   Vaibhavi Nasare
                 </h4>
@@ -71,7 +75,7 @@ const Hero = () => {
 
             <div className="pt-2 text-gray-400 border rounded-sm px-2 md:px-5 p-2 flex gap-5">
               <img src="/female.svg" className="w-10" alt="" />
-              <div>
+              <div className="text-xs md:text-base">
                 <h4 className="text-black font-semibold text-sm md:text-lg">
                   Samiksha Charode
                 </h4>
@@ -81,13 +85,27 @@ const Hero = () => {
 
             <div className="pt-2 text-gray-400 border rounded-sm px-2 md:px-5 p-2 flex gap-5">
               <img src="/male.svg" className="w-10" alt="" />
-              <div>
+              <div className="text-xs md:text-base">
                 <h4 className="text-black font-semibold text-sm md:text-lg">
                   Abdule Mosin
                 </h4>
                 <h5>Business Analyst</h5>
               </div>
             </div>
+          </div>
+
+          <div className="flex gap-5 justify-center flex-col mt-10 items-center">
+          <div className="text-xl text-center text-gray-700 ">Guided by</div>
+            
+          <div className="pt-2 text-gray-400  w-fit border rounded-sm px-2 md:px-5 p-2 flex gap-5">
+            <img src="/guide.svg" className="w-10" alt="" />
+            <div className="text-xs md:text-base">
+              <h4 className="text-black font-semibold text-sm md:text-lg">
+                Mr. M.K. Tatte
+              </h4>
+              <h5>Guide</h5>
+            </div>
+          </div>
           </div>
         </div>
       </Container>

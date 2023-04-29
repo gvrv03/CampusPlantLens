@@ -1,3 +1,4 @@
+import { AllCampsPlant } from "campusplantlens/Components/data";
 import Link from "next/link";
 import React from "react";
 
@@ -13,91 +14,15 @@ const Gallery = () => {
           Gallery
         </Link>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg"
-            alt=""
-          />
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {!AllCampsPlant && "Loading..."}
+        {AllCampsPlant.map((item, index) => {
+          return (
+            <div key={index}>
+              <img style={{height:"300px"}}  class="h-auto w-full rounded-lg" src={item.URl} alt="" />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
