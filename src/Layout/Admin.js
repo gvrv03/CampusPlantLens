@@ -29,17 +29,7 @@ const Admin = ({ children }) => {
               </Link>
             </button>
 
-            <button className=" w-full text-left  font-semibold">
-              <Link href="" className="  ">
-                Plants
-              </Link>
-            </button>
-
-            <button className=" w-full text-left  font-semibold">
-              <Link href="" className="  ">
-                Feedback
-              </Link>
-            </button>
+          
           </div>
         </div>
         <div className="  w-full h-screen overflow-y-scroll md:w-4/5 p-5  bg-white">

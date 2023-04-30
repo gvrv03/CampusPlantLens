@@ -103,9 +103,6 @@ const AllPlants = () => {
                 Plant Added by
               </th>
               <th scope="col" className="px-6 py-3">
-                Toatl Plants
-              </th>
-              <th scope="col" className="px-6 py-3">
                 Edit/Delete
               </th>
             </tr>

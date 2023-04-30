@@ -28,6 +28,7 @@
     "suneditor": "^2.44.12",
     "suneditor-react": "^3.5.0",
     "tailwindcss": "3.3.1",
+    "typewriter-effect": "^2.19.0",
     "uuid": "^9.0.0"
   }
 }

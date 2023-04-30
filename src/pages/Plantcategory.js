@@ -13,7 +13,7 @@ const Plantcategory = () => {
           </Link>{" "}
           /{" "}
           <Link href="/Plantcategory" className="cursor-pointer">
-            plant Category
+            Plant Category
           </Link>
         </div>
 

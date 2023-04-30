@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Container from "./container";
+import Typewriter from "typewriter-effect";
 
 const Hero = () => {
   return (
@@ -12,15 +13,32 @@ const Hero = () => {
               Campus Plant Lens
             </h1>
             <p className="py-5 text-base leading-normal text-blue-600 font-semibold lg:text-xl xl:text-2xl ">
-              Welecome to the campus of Greenery!
+              Welcome to the campus of Greenery!
             </p>
-
-            <p className="py-5 text-base leading-normal text-gray-500 lg:text-xl xl:text-2xl ">
+            {/* <p className="text-gray-500 py-5 text-base leading-normal lg:text-xl xl:text-2xl">
               Campus Plant Lens is here to serve as a platform for sharing
               valuable information on plants and their properties through QR
               scanning
+            </p> */}
+            <p className="py-5 text-base leading-normal text-green-600 font-semibold lg:text-xl xl:text-2xl ">
+              आपण हिरव्यागार वातावरणात राहू इच्छिता ? <br />
+              <span className=""> की रखरखीत वाळवंटात .... !</span>
+              <br />
+              <br />
+              मर्जी आपली ... कारण <br />
+              <span className=""> जिवण आहे ... आपले !</span>
             </p>
-
+            <div className="py-5 flex text-left w-full font-semibold text-4xl my-5 sm:text-left  ">
+              <span className="pColor ntext-left">
+                <Typewriter
+                  options={{
+                    strings: [" झाडे लावा ... झाडे जगवा !"],
+                    autoStart: true,
+                    loop: true,
+                  }}
+                />
+              </span>
+            </div>
             <div className="flex mt-10 flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               <Link
                 href="/Plantcategory"
@@ -95,17 +113,17 @@ const Hero = () => {
           </div>
 
           <div className="flex gap-5 justify-center flex-col mt-10 items-center">
-          <div className="text-xl text-center text-gray-700 ">Guided by</div>
-            
-          <div className="pt-2 text-gray-400  w-fit border rounded-sm px-2 md:px-5 p-2 flex gap-5">
-            <img src="/guide.svg" className="w-10" alt="" />
-            <div className="text-xs md:text-base">
-              <h4 className="text-black font-semibold text-sm md:text-lg">
-                Mr. M.K. Tatte
-              </h4>
-              <h5>Guide</h5>
+            <div className="text-xl text-center text-gray-700 ">Guided by</div>
+
+            <div className="pt-2 text-gray-400  w-fit border rounded-sm px-2 md:px-5 p-2 flex gap-5">
+              <img src="/guide.svg" className="w-10" alt="" />
+              <div className="text-xs md:text-base">
+                <h4 className="text-black font-semibold text-sm md:text-lg">
+                  Mr. M.K. Tatte
+                </h4>
+                <h5>Guide</h5>
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </Container>

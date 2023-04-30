@@ -23,7 +23,7 @@ const SingleDetailsCard = (props) => {
               href={`/Plant/${props.id}`}
               className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
             >
-              View Plants
+              View Plant
               <svg
                 className="w-4 h-4 ml-2"
                 viewBox="0 0 24 24"
