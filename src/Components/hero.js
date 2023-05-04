@@ -105,7 +105,7 @@ const Hero = () => {
               <img src="/male.svg" className="w-10" alt="" />
               <div className="text-xs md:text-base">
                 <h4 className="text-black font-semibold text-sm md:text-lg">
-                  Abdule Mosin
+                  Abdul Mohsin
                 </h4>
                 <h5>Business Analyst</h5>
               </div>

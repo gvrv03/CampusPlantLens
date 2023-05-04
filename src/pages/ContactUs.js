@@ -8,9 +8,9 @@ const ContactUs = () => {
   <div class="relative container px-4 mx-auto">
     <div class="max-w-2xl mx-auto mb-18 text-center">
       <span class="inline-block py-1 px-3 mb-4 text-xs font-semibold text-orange-900 bg-orange-50 rounded-full">READY TO SUPPORT</span>
-      <h1 class="font-heading text-5xl xs:text-6xl font-bold text-gray-900 mb-4">
-        <span>Anything unclear or</span>
-        <span class="font-serif italic">need help</span>
+      <h1 class="font-heading text-4xl xs:text-6xl font-bold text-gray-900 mb-4">
+        <span>Want to contact the developer ?</span>
+        <span class="font-serif italic"></span>
         <span>?</span>
       </h1>
       <p class="text-xl text-gray-500 font-semibold">Relax, we are ready to support 24/7 for you</p>
@@ -22,7 +22,7 @@ const ContactUs = () => {
             <img class="block mx-auto mb-3" src="saturn-assets/images/contact/icon-orange-email.svg" alt=""/>
             <h5 class="text-2xl font-bold text-gray-900 mb-3">Contact Us</h5>
             <p class="text-gray-500 mb-3">Contact us to seek help from us, we will help you as soon as possible</p>
-            <span class="block text-sm text-orange-900 mb-8">hello@yourdomain.com</span>
+            <span class="block text-sm text-orange-900 mb-8">vijaysurwase1109@gmail.com</span>
             <a class="relative group inline-block py-4 px-6 text-white font-semibold bg-blue-900 rounded-full overflow-hidden" href="#">
               <div class="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
               <div class="relative flex items-center justify-center">
@@ -43,7 +43,7 @@ const ContactUs = () => {
             <img class="block mx-auto mb-3" src="saturn-assets/images/contact/icon-orange-headphones.svg" alt=""/>
             <h5 class="text-2xl font-bold text-gray-900 mb-3">User Service</h5>
             <p class="text-gray-500 mb-3">Contact us to seek help from us, we will help you as soon as possible</p>
-            <span class="block text-sm text-blue-900 mb-8">+08 128 903427</span>
+            <span class="block text-sm text-blue-900 mb-8">+91 7776862704</span>
             <a class="relative group inline-block py-4 px-6 text-white font-semibold bg-blue-900 rounded-full overflow-hidden" href="#">
               <div class="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
               <div class="relative flex items-center justify-center">
