@@ -44,7 +44,7 @@ export default function Home() {
         title="Glimpse of Greenery in our Campus"
       >
         This section is to highlight the plantation and the green event
-        conducted bu Mr. M.K. Tatte, Government Polytechnic, Arvi
+        conducted by Mr. M.K. Tatte, Government Polytechnic, Arvi
       </SectionTitle>
       <div className="container flex justify-center px-5 m-auto">
         <div className=" w-full">

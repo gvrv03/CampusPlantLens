@@ -26,7 +26,7 @@ const Hero = () => {
               <br />
               <br />
               मर्जी आपली ... कारण <br />
-              <span className=""> जिवण आहे ... आपले !</span>
+              <span className=""> जिवन आहे ... आपले !</span>
             </p>
             <div className="py-5 flex text-left w-full font-semibold text-4xl my-5 sm:text-left  ">
               <span className="pColor ntext-left">
@@ -87,7 +87,7 @@ const Hero = () => {
                 <h4 className="text-black font-semibold text-sm md:text-lg">
                   Vaibhavi Nasare
                 </h4>
-                <h5>System Analyst</h5>
+                <h5>Data Analyst</h5>
               </div>
             </div>
 
@@ -103,11 +103,10 @@ const Hero = () => {
 
             <div className="pt-2 text-gray-400 border rounded-sm px-2 md:px-5 p-2 flex gap-5">
               <img src="/male.svg" className="w-10" alt="" />
-              <div className="text-xs md:text-base">
+              <div className="text-xs grid place-items-center md:text-base">
                 <h4 className="text-black font-semibold text-sm md:text-lg">
                   Abdul Mohsin
                 </h4>
-                <h5>Business Analyst</h5>
               </div>
             </div>
           </div>
