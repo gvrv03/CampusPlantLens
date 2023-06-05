@@ -1,14 +1,10 @@
-import PopUpModal from "campusplantlens/Components/PopUpModal";
+import React, { useContext, useEffect, useState, createContext } from "react";
 
-import { useContext } from "react";
-import { createContext } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+const GalleryContext = createContext();
 
-const galleryContext = createContext();
-export function GalleryContexProvider({ children }) {
-  const [updater, setupdater] = useState("");
-  const [gallery, setgallery] = useState({ isLoading: true, images: [] });
+export function GalleryContextProvider({ children }) {
+  const [updater, setUpdater] = useState("");
+  const [gallery, setGallery] = useState({ isLoading: true, images: [] });
 
   const addImagesInGallery = async (imgUrl) => {
     const res = await fetch("/api/AddInGallery", {
@@ -23,7 +19,7 @@ export function GalleryContexProvider({ children }) {
 
     const data = await res.json();
     if (data.msg) {
-      setupdater(Math.random());
+      setUpdater(Math.random());
       return data.msg;
     } else {
       return data.error;
@@ -31,7 +27,7 @@ export function GalleryContexProvider({ children }) {
   };
 
   const getsImagesInGallery = async () => {
-    setgallery({ isLoading: true, images: [] });
+    setGallery({ isLoading: true, images: [] });
 
     const res = await fetch("/api/AddInGallery", {
       method: "GET",
@@ -39,13 +35,12 @@ export function GalleryContexProvider({ children }) {
 
     const data = await res.json();
     if (!data.error) {
-      setgallery({ isLoading: false, images: data });
+      setGallery({ isLoading: false, images: data });
       return data;
     } else {
       return data.error;
     }
   };
-
 
   const deleteImageInGallery = async (imgID) => {
     const res = await fetch("/api/AddInGallery", {
@@ -60,7 +55,7 @@ export function GalleryContexProvider({ children }) {
 
     const data = await res.json();
     if (data.msg) {
-      setupdater(Math.random());
+      setUpdater(Math.random());
       return data.msg;
     } else {
       return data.error;
@@ -72,14 +67,14 @@ export function GalleryContexProvider({ children }) {
   }, [updater]);
 
   return (
-    <galleryContext.Provider
-      value={{ addImagesInGallery, gallery, setupdater ,deleteImageInGallery}}
+    <GalleryContext.Provider
+      value={{ addImagesInGallery, gallery, setUpdater, deleteImageInGallery }}
     >
       {children}
-    </galleryContext.Provider>
+    </GalleryContext.Provider>
   );
 }
 
-export function usegalleryContext() {
-  return useContext(galleryContext);
+export function useGalleryContext() {
+  return useContext(GalleryContext);
 }

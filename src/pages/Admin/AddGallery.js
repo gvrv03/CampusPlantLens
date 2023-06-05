@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../../../firebase";
 import { v4 } from "uuid";
-import { usegalleryContext } from "campusplantlens/Context/GalleryContext";
+import { useGalleryContext } from "campusplantlens/Context/GalleryContext";
 const AddImages = () => {
   const { addImagesInGallery, gallery, setupdater, deleteImageInGallery } =
-    usegalleryContext();
-    
+    useGalleryContext();
+
   const [loading, setloading] = useState(false);
   const [uploadLoad, setuploadLoad] = useState(false);
   const [imageUpload, setImageUpload] = useState(null);

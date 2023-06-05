@@ -1,10 +1,10 @@
 import { AllCampsPlant } from "campusplantlens/Components/data";
-import { usegalleryContext } from "campusplantlens/Context/GalleryContext";
+import { useGalleryContext } from "campusplantlens/Context/GalleryContext";
 import Link from "next/link";
 import React from "react";
 
 const Gallery = () => {
-  const { gallery, setupdater } = usegalleryContext();
+  const { gallery, setupdater } = useGalleryContext();
 
   return (
     <div className="mt-16 p-5 container m-auto">
