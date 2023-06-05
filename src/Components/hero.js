@@ -57,75 +57,7 @@ const Hero = () => {
           </div>
         </div>
       </Container>
-      <Container>
-        <div className="flex flex-col justify-center">
-          <div className="text-xl text-center text-gray-700 ">Developed by</div>
-
-          <div className="grid grid-cols-2 md:grid-cols-5   gap-5 mt-10 md:justify-around">
-            <div className="pt-2 text-gray-400 border rounded-sm px-2 md:px-5 p-2 flex gap-5">
-              <img src="/male.svg" className="w-10" alt="" />
-              <div>
-                <h4 className="text-black font-semibold text-sm md:text-lg">
-                  Vijay Surwase
-                </h4>
-                <h5>Web Developer</h5>
-              </div>
-            </div>
-            <div className="pt-2 text-gray-400 border rounded-sm px-2 md:px-5 p-2 flex gap-5">
-              <img src="/male.svg" className="w-10" alt="" />
-              <div className="text-xs md:text-base">
-                <h4 className="text-black font-semibold text-sm md:text-lg">
-                  Tanmay Zalke
-                </h4>
-                <h5>Web Developer</h5>
-              </div>
-            </div>
-
-            <div className="pt-2 text-gray-400 border rounded-sm px-2 md:px-5 p-2 flex gap-5">
-              <img src="/female.svg" className="w-10" alt="" />
-              <div className="text-xs md:text-base">
-                <h4 className="text-black font-semibold text-sm md:text-lg">
-                  Vaibhavi Nasare
-                </h4>
-                <h5>Data Analyst</h5>
-              </div>
-            </div>
-
-            <div className="pt-2 text-gray-400 border rounded-sm px-2 md:px-5 p-2 flex gap-5">
-              <img src="/female.svg" className="w-10" alt="" />
-              <div className="text-xs md:text-base">
-                <h4 className="text-black font-semibold text-sm md:text-lg">
-                  Samiksha Charode
-                </h4>
-                <h5>System Tester</h5>
-              </div>
-            </div>
-
-            <div className="pt-2 text-gray-400 border rounded-sm px-2 md:px-5 p-2 flex gap-5">
-              <img src="/male.svg" className="w-10" alt="" />
-              <div className="text-xs grid place-items-center md:text-base">
-                <h4 className="text-black font-semibold text-sm md:text-lg">
-                  Abdul Mohsin
-                </h4>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex gap-5 justify-center flex-col mt-10 items-center">
-            <div className="text-xl text-center text-gray-700 ">Guided by</div>
-
-            <div className="pt-2 text-gray-400  w-fit border rounded-sm px-2 md:px-5 p-2 flex gap-5">
-              <img src="/guide.svg" className="w-10" alt="" />
-              <div className="text-xs md:text-base">
-                <h4 className="text-black font-semibold text-sm md:text-lg">
-                  Mr. M.K. Tatte
-                </h4>
-                <h5>Guide</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Container>
+   
     </>
   );
 };

@@ -6,8 +6,20 @@ import { useState } from "react";
 
 const plantContext = createContext();
 export function PlantContexProvider({ children }) {
-  const [allPlants, setallPlants] = useState([]);
-  const [allExisPlants, setallExisPlants] = useState([]);
+  const [allPlants, setallPlants] = useState({
+    isLoading: true,
+    data: [],
+  });
+  const [allExisPlants, setallExisPlants] = useState({
+    isLoading: true,
+    data: [],
+  });
+
+  const [allExisImages, setallExisImages] = useState({
+    isLoading: true,
+    data: [],
+  });
+
   const [effect, seteffect] = useState("fhgdsgfsdha");
   const [updateState, setupdateState] = useState({
     state: "hidden",
@@ -82,6 +94,7 @@ export function PlantContexProvider({ children }) {
         plantName: plantName,
       }),
     });
+
     const data = await res.json();
     seteffect(Math.random());
     if (data.msg) {
@@ -267,7 +280,6 @@ export function PlantContexProvider({ children }) {
       }),
     });
     const data = await res.json();
-    console.log(data);
     if (data.msg) {
       openModal("success", data.msg);
     } else {
@@ -277,6 +289,10 @@ export function PlantContexProvider({ children }) {
   };
 
   const getPlant = async () => {
+    setallPlants({
+      isLoading: true,
+      data: [],
+    });
     const res = await fetch("/api/addPlant", {
       method: "GET",
       headers: {
@@ -284,10 +300,17 @@ export function PlantContexProvider({ children }) {
       },
     });
     const data = await res.json();
-    setallPlants(data);
+    setallPlants({
+      isLoading: false,
+      data: data,
+    });
   };
 
   const getExisPlant = async () => {
+    setallExisPlants({
+      isLoading: true,
+      data: [],
+    });
     const res = await fetch("/api/addExisPlant", {
       method: "GET",
       headers: {
@@ -295,12 +318,49 @@ export function PlantContexProvider({ children }) {
       },
     });
     const data = await res.json();
-    setallExisPlants(data);
+
+    setallExisPlants({
+      isLoading: false,
+      data: data,
+    });
+  };
+
+  const removeExisPlantImage = async (id, index) => {
+    const res = await fetch("/api/addImages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        remoID: id,
+        indexToRemove: index,
+      }),
+    });
+    const data = await res.json();
+  };
+
+  const getExisPlantImages = async () => {
+    setallExisImages({
+      isLoading: true,
+      data: [],
+    });
+    const res = await fetch("/api/addImages", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    setallExisImages({
+      isLoading: false,
+      data: data,
+    });
   };
 
   useEffect(() => {
     getExisPlant();
     getPlant();
+    getExisPlantImages();
   }, [effect]);
 
   return (
@@ -320,9 +380,11 @@ export function PlantContexProvider({ children }) {
         seteffect,
         UpdateExisPlant,
         addImagesByPlantName,
+        removeExisPlantImage,
         deleteExisPlantById,
         getAllExisPlantById,
         addExisPlant,
+        allExisImages,
       }}
     >
       {" "}

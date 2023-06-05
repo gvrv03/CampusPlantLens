@@ -10,7 +10,7 @@ const AllExisPlants = () => {
     usePlantContext();
   const [popUp, setpopUp] = useState({ state: "hidden", id: "" });
   const [search, setsearch] = useState("");
-  const filteredData = allExisPlants.filter((plant) => {
+  const filteredData = allExisPlants.data.filter((plant) => {
     if (!search) {
       return plant;
     }
@@ -150,7 +150,12 @@ const AllExisPlants = () => {
               })}
           </tbody>
         </table>
-        {filteredData.length === 0 && (
+        {allExisPlants.isLoading && (
+          <div className="bg-white p-5 mt-5 font-semibold text-center h-screen w-full grid place-items-center">
+            <img src="/loadingSpinner.gif" alt="" className="w-10" />
+          </div>
+        )}
+        {!allExisPlants.isLoading && filteredData.length === 0 && (
           <div className="grid place-items-center  p-5">Not Found</div>
         )}{" "}
       </div>

@@ -12,10 +12,10 @@ const Dashboard = () => {
           <PieChart
             // animate=
             data={[
-              { title: "Plant", value: allPlants.length, color: "#abedc6" },
+              { title: "Plant", value: allPlants.data.length, color: "#abedc6" },
               {
                 title: "Total Plant",
-                value: allExisPlants.length,
+                value: allExisPlants.data.length,
                 color: "#97e6b8",
               },
               { title: "Category", value: 6, color: "#6bc792" },

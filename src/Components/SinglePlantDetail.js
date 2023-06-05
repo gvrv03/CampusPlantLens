@@ -1,7 +1,6 @@
 import React from "react";
 
 const SinglePlantDetail = ({ longDesc }) => {
-  console.log(longDesc);
   return (
     <div className="">
       <div dangerouslySetInnerHTML={{ __html: longDesc }} />

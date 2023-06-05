@@ -10,9 +10,10 @@ import React from "react";
 const PlantsAll = () => {
   const router = useRouter();
   const { allExisPlants } = usePlantContext();
-  const plantTotal = allExisPlants.filter((plant) => {
+  const plantTotal = allExisPlants.data.filter((plant) => {
     return router.query.id === plant.PlantDetails._id;
   });
+
   return (
     <PlantsLayout>
       <div className=" ">
@@ -27,7 +28,13 @@ const PlantsAll = () => {
           {router.query.pname}
         </div>
 
-        {plantTotal.length === 0 && (
+        {allExisPlants.isLoading && (
+          <div className="bg-white p-5 mt-5 font-semibold text-center h-screen w-full grid place-items-center">
+            <img src="/loadingSpinner.gif" alt="" className="w-10" />
+          </div>
+        )}
+
+        {!allExisPlants.isLoading && plantTotal.length === 0 && (
           <div className="bg-white p-5 mt-5 font-semibold text-center h-screen w-full grid place-items-center">
             {router.query.pname} not Founds
           </div>

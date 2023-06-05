@@ -28,8 +28,11 @@ const Admin = ({ children }) => {
                 Add Plant Images
               </Link>
             </button>
-
-          
+            <button className=" w-full text-left  font-semibold">
+              <Link href="/Admin/AddGallery" className="  ">
+                Gallery
+              </Link>
+            </button>
           </div>
         </div>
         <div className="  w-full h-screen overflow-y-scroll md:w-4/5 p-5  bg-white">

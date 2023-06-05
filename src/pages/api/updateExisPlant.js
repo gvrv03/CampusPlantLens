@@ -16,7 +16,6 @@ export default async (req, res) => {
 const deletePlant = async (req, res) => {
   try {
     const { id } = req.body;
-    console.log("Hey");
     const result = await Plant.findByIdAndDelete(id);
     return res.status(200).json({ msg: "Plant Deleted", result });
   } catch (error) {

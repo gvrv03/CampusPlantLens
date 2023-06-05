@@ -15,13 +15,13 @@ const AdminStat = () => {
           </div>
           <div className="p-2 w-full bg-gray-100">
             <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">
-              {allPlants.length}
+              {allPlants.data.length}
             </h2>
             <p className="leading-relaxed">Plants Type</p>
           </div>
           <div className="p-2 w-full bg-gray-100">
             <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">
-              {allExisPlants.length}
+              {allExisPlants.data.length}
             </h2>
             <p className="leading-relaxed">Plants</p>
           </div>

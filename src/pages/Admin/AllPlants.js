@@ -5,17 +5,12 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 const AllPlants = () => {
-  const {
-    allPlants,
-    allExisPlants,
-    updateState,
-    setupdateState,
-    deletePlantById,
-  } = usePlantContext();
+  const { allPlants, updateState, setupdateState, deletePlantById } =
+    usePlantContext();
   const [popUp, setpopUp] = useState({ state: "hidden", id: "" });
   const [search, setsearch] = useState("");
 
-  const filteredData = allPlants.filter((plant) => {
+  const filteredData = allPlants.data.filter((plant) => {
     if (!search) {
       return plant;
     }
@@ -113,7 +108,6 @@ const AllPlants = () => {
                 const { plantName, category, writtenBy, _id } = plant;
                 // allExisPlants
 
-                
                 return (
                   <>
                     <tr className="bg-white border-b " key={index}>
@@ -151,7 +145,12 @@ const AllPlants = () => {
               })}
           </tbody>
         </table>
-        {filteredData.length === 0 && (
+        {allPlants.isLoading && (
+          <div className="bg-white p-5 mt-5 font-semibold text-center h-screen w-full grid place-items-center">
+            <img src="/loadingSpinner.gif" alt="" className="w-10" />
+          </div>
+        )}
+        {!allPlants.isLoading && filteredData.length === 0 && (
           <div className="grid place-items-center  p-5">Not Found</div>
         )}{" "}
       </div>

@@ -1,8 +1,12 @@
 import Admin from "campusplantlens/Layout/Admin";
 import React, { useState } from "react";
+
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from "../../../firebase";
+import { v4 } from "uuid";
+
 import dynamic from "next/dynamic";
 import "suneditor/dist/css/suneditor.min.css"; // Import Sun Editor's CSS File
-import { Content } from "next/font/google";
 import { usePlantContext } from "campusplantlens/Context/PlantContext";
 import { useUserAuth } from "campusplantlens/Context/UserAuthContext";
 import Link from "next/link";
@@ -11,6 +15,20 @@ const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
 });
 const AddPlant = () => {
+ 
+  const [uploadLoad, setuploadLoad] = useState(false);
+  const [imageUpload, setImageUpload] = useState(null);
+  const [imageUrls, setImageUrls] = useState("");
+  const [imgErr, setimgErr] = useState();
+  const [upload, setupload] = useState(false);
+
+  if (imgErr) {
+    setTimeout(() => {
+      setimgErr("");
+    }, 3000);
+  }
+
+
   const [pDetails, setpDetails] = useState({});
   const [longDesc, setlongDesc] = useState();
   const { addPlant, seteffect } = usePlantContext();
@@ -22,21 +40,37 @@ const AddPlant = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  const uploadFile = async () => {
+    setuploadLoad(true);
+    if (imageUpload == null) {
+      setuploadLoad(false);
+      return setimgErr("Please Select Image");
+    }
+
+    const imageRef = ref(
+      storage,
+      `Plant/${pDetails.plantName}/${imageUpload.name + v4()}`
+    );
+    await uploadBytes(imageRef, imageUpload).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageUrls(url);
+      });
+    });
+
+    setimgErr("Image Uploaded");
+    setuploadLoad(false);
+    setupload(true);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const {
-      plantName,
-      maintainedBy,
-      plantimage,
-      category,
-      shortDesc,
-      sciName,
-    } = pDetails;
+    const { plantName, maintainedBy, category, shortDesc, sciName } = pDetails;
     const res = await addPlant(
       user.displayName,
       plantName,
       maintainedBy,
-      plantimage,
+      imageUrls,
       category,
       shortDesc,
       longDesc,
@@ -101,15 +135,41 @@ const AddPlant = () => {
             />
           </div>
           <div className="">
-            <h5>Plant Image</h5>
-            <input
-              type="url"
-              onChange={onChange}
-              required={requiredState}
-              value={pDetails.plantimage ? pDetails.plantimage : ""}
-              name="plantimage"
-              className="border w-full outline-none py-1 mt-2 px-5"
-            />
+            <h5>Plant Cover Image</h5>
+
+            <div className="flex mt-2 items-center">
+              <input
+                type="file"
+                required={true}
+                onChange={(event) => {
+                  setImageUpload(event.target.files[0]);
+                }}
+              />
+
+              <button
+                onClick={!upload && uploadFile}
+                className="flex font-semibold justify-center items-center gap-2 bg-blue-500 text-white rounded-full p-2"
+                type="button"
+              >
+                {" "}
+                {uploadLoad && (
+                  <img
+                    src="/loadingSpinner.gif"
+                    className="w-5"
+                    alt="spinner"
+                  />
+                )}
+                {upload && <i className="bi bi-arrow-up-right-circle-fill"></i>}
+                <span className="px-5 text-sm ">
+                  {upload ? "Uploaded" : "Upload"}
+                </span>{" "}
+              </button>
+            </div>
+            {imgErr && (
+              <div className="text-red-700 font-bold border bg-red-100 p-2 mt-5 border-red-300 text-center">
+                {imgErr}
+              </div>
+            )}
           </div>
         </div>
 

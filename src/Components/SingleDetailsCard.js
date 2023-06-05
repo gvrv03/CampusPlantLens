@@ -4,9 +4,9 @@ import React from "react";
 const SingleDetailsCard = (props) => {
   return (
     <div className="bg-white  rounded-lg  max-h-fit ">
-      <div className="h-full flex flex-col justify-between border-2 border-gray-200 border-opacity-60  overflow-hidden">
+      <div className="h-full flex flex-col  border-2 border-gray-200 border-opacity-60  overflow-hidden">
         <img
-          className="lg:h-48 md:h-36 h-56 w-full object-cover object-center"
+          className="lg:h-48 md:h-36 h-56 overflow-hidden w-full object-cover object-center"
           src={props.image}
           alt="blog"
         />
